@@ -1,6 +1,19 @@
 from template import Agent
-import heapq, random
+import heapq
 import math
+from Sequence.sequence_model import *
+
+"""
+Authors: Group-28 Unimelb comp90054 2021s1
+
+An agent based on uniform search. First, to find if we choose action A,
+how much will it cost. "Cost" here means that the distance between the 
+position we just take and the same color chip. And the search is not 
+exploring the whole board, but only the four directions of current position.
+
+Once we got the closest position, we use the same method to find the best
+draft card and then choose this action.
+"""
 
 
 class myAgent(Agent):
@@ -8,38 +21,68 @@ class myAgent(Agent):
         super().__init__(_id)
 
     def SelectAction(self, actions, game_state):
-
-        # ucs Advanced
-        action = self.uscSelectionA(actions, game_state)
-        
         # usc
-        # action = self.uscSelection(actions, game_state)
+        action = self.uscSelectionH(actions, game_state)
 
         # minimax
         # action = self.minimaxSelection(actions, game_state, True, 2)
         return action
 
-    ######################################### USC Advanced ##########################################
-    def uscSelectionA(self, actions, game_state):
-        nextAction = random.choice(actions)
+    # UCS
+    def uscSelectionH(self, actions, game_state):
 
+        # avoid null action return
+        nextAction = random.choice(actions)
         minScore = math.inf
+
+        # go through current actions
         for action in actions:
-            score = self.uscActionsA(action, game_state)
+            # get the "cost" if doing this action
+            score = self.uscActionsH(action, game_state)
             if minScore > score:
+                # keep the cost minimizing
                 minScore = score
                 nextAction = action
 
+        # calculate this play cards' draft cards
+        playCard = nextAction["play_card"]
+        print("playCard: ",playCard)
+        playPos = nextAction["coords"]
+
+        # got the smallest distance of current possible play_card
+        # then find the best draft_card using the same method
+        if playCard != "jc" or playCard != "js" or playCard != "jh" or playCard != "jd":
+            mindraft = math.inf
+            for action in actions:
+                # if it's the trade card, need to find which draft card is best
+                # separately handle this is because trade has None value
+                if action["type"] == "trade":
+                    if action["play_card"] != None:
+                        draftscore = self.uscPosH(action["draft_card"], game_state)
+                        if mindraft > draftscore:
+                            mindraft = draftscore
+                            nextAction = action
+
+                if action["play_card"] == playCard and action["coords"] == playPos:
+                    draftscore = self.uscPosH(action["draft_card"], game_state)
+                    if mindraft > draftscore:
+                        mindraft = draftscore
+                        nextAction = action
+
         return nextAction
 
-    #  mini distance between one of the possible action and the goal
-    def uscActionsA(self, action, game_state):
-        if action["type"] == "trade":
-            return math.inf
-        point = action["coords"]
+    #  (for draft card) mini distance between one of the possible action and the goal
+    def uscPosH(self, draftCard, game_state):
+
+        # if it's jack, we take it immediately
+        if draftCard == "js" or draftCard == "jh" or draftCard == "jc" or draftCard == "jd":
+            return -math.inf
+
+        points = COORDS[draftCard]
 
         point1s = []
         minDistance = math.inf
+        temp = math.inf
 
         awesomeSet = set()
         awesomeSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
@@ -49,8 +92,9 @@ class myAgent(Agent):
         # all the possible actions
         if game_state.agents[(self.id - 1) % 4].last_action == None:
             point1s = list(awesomeSet)
-            minDistance = min(self.chipDistanceA(point, point1s), minDistance)
-            print("first: ", minDistance)
+            for point in points:
+                temp = min(self.chipDistanceH(point, point1s, game_state), temp)
+                minDistance = min(temp, minDistance)
             return minDistance
         else:
             color = game_state.agents[self.id].colour
@@ -67,11 +111,70 @@ class myAgent(Agent):
 
             # try to get closer with same color chips or JOKER or 4 Hearts
             # consider the obstacle(opp_color) in the way, and four directions
-            minDistance = min(self.chipDistanceA(point, point1s), minDistance)
+            for point in points:
+                temp = min(self.chipDistanceH(point, point1s, game_state), temp)
+                minDistance = min(temp, minDistance)
+            return minDistance
+
+    #  mini distance between one of the possible action and the goal
+    def uscActionsH(self, action, game_state):
+
+        if action["type"] == "trade":
+            # if got a card trade need to play it asap
+            return -math.inf
+
+        playCard = action["play_card"]
+
+        # TODO: it's not good enough to hold it util opp occupy the 4 hearts
+        # one eyed take opp from 4 hearts, two-eyed doesn't need to be considered
+        # since every action will be take into consider
+        if playCard == "js" or playCard == "jh":
+            if action["coords"] == (4, 5) or action["coords"] == (4, 4) or \
+                    action["coords"] == (5, 4) or action["coords"] == (5, 5):
+                return -math.inf
+            else:
+                return math.inf
+
+        point = action["coords"]
+
+        point1s = []
+        minDistance = math.inf
+
+        # the 4 hearts and four corner
+        awesomeSet = set()
+        awesomeSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
+
+        # if the agent one before it has no last action, means it is the first one
+        # then we need to find the closest distance between 4 hearts/4 corner with
+        # all the possible actions
+        if game_state.agents[(self.id - 1) % 4].last_action == None:
+            point1s = list(awesomeSet)
+            minDistance = min(self.chipDistanceH(point, point1s, game_state), minDistance)
+            return minDistance
+        else:
+            color = game_state.agents[self.id].colour
+            seqColor = game_state.agents[self.id].seq_colour
+            chips = game_state.board.chips
+
+            # get the current position of same color chips and JOKER and empty 4 Hearts
+            for x in range(len(chips)):
+                for y in range(len(chips[0])):
+                    if chips[x][y] == color or chips[x][y] == seqColor:
+                        point1s.append((x, y))
+                    if (x, y) in awesomeSet and chips[x][y] == EMPTY:
+                        point1s.append((x, y))
+
+            # try to get closer with same color chips or JOKER or 4 Hearts
+            # consider the obstacle(opp_color) in the way, and four directions
+            minDistance = min(self.chipDistanceH(point, point1s, game_state), minDistance)
             return minDistance
 
     # the minimum distance between point and one of the point in point1s
-    def chipDistanceA(self, point, point1s):
+    def chipDistanceH(self, point, point1s, game_state):
+        # if current point is at empty four heart, play it immediately!
+        if point in [(4,4),(4,5),(5,4),(5,5)]:
+            if game_state.board.chips[point[0]][point[1]] == EMPTY:
+                return -math.inf
 
         myqueue = PriorityQueue()
         startCost = 0
@@ -88,7 +191,6 @@ class myAgent(Agent):
 
         while myqueue:
             node = myqueue.pop()
-            print(node)
             expandTime += 1
             parent, pos, cost = node
             # take out the best cost for current pos
@@ -101,22 +203,43 @@ class myAgent(Agent):
                     totalCost = cost
                     break
 
+                # if it's the first time to explore, then 8 positions around it
+                # should be expanded
                 if expandTime == 1:
-                    succNodes = self.expandA(parent, pos, True)
+                    succNodes = self.expandH(parent, pos, game_state, True)
                 else:
-                    succNodes = self.expandA(parent, pos, False)
+                    # if not, only need to expand in one direction
+                    succNodes = self.expandH(parent, pos, game_state, False)
 
                 if succNodes == []:
                     return math.inf
                 for succNode in succNodes:
                     succParent, succPos, succCost = succNode
-                    newNode = (succParent,succPos, cost + succCost)
+                    newNode = (succParent, succPos, cost + succCost)
                     myqueue.push(newNode, cost + succCost)
         return totalCost
 
-    def expandA(self, parentPoint, point, isRoot):
+    # used to expand the node
+    def expandH(self, parentPoint, point, game_state, isRoot):
+        # cost of every path
+        OPP = 4
+        OPP_SEQ = 5
+        NORMAL = 2
+        AWE = 0
+
+        # chips is used to find it expand position contains opponent
+        chips = game_state.board.chips
+        opp_color = game_state.agents[self.id].opp_colour
+        opp_seq_color = game_state.agents[self.id].opp_seq_colour
+
+        # point's parent
         x0, y0 = parentPoint
+        # current node which is going to be expanded
         x, y = point
+
+        # the 4 hearts and four corner
+        awesomeSet = set()
+        awesomeSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
 
         # expand 8 directions
         if isRoot:
@@ -130,263 +253,41 @@ class myAgent(Agent):
                     dx, dy = seq[i]
                     if x + dx >= 0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
                         if not (dx == dy and dx == 0):
-                            children.append((point, (x + dx, y + dy), 1))
+                            # if opp is in the way, increase the cost
+                            if chips[x + dx][y + dy] == opp_color:
+                                children.append((point, (x + dx, y + dy), OPP))
+                            elif chips[x + dx][y + dy] == opp_seq_color:
+                                children.append((point, (x + dx, y + dy), OPP_SEQ))
+                            # if aswesome set we want get closer, so reduce the cost
+                            elif chips[x + dx][y + dy] == EMPTY and (x+dx,y+dy) in awesomeSet:
+                                children.append((point, (x + dx, y + dy), AWE))
+                            else:
+                                children.append((point, (x + dx, y + dy), NORMAL))
         else:
             # only expand one direction
             children = []
             dx = x - x0
             dy = y - y0
-            if x+dx>=0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
-                children.append((point, (x + dx, y + dy), 1))
+            if x + dx >= 0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
+                # if opp is in the way, increase the cost
+                if chips[x + dx][y + dy] == opp_color:
+                    children.append((point, (x + dx, y + dy), OPP))
+                elif chips[x + dx][y + dy] == opp_seq_color:
+                    children.append((point, (x + dx, y + dy), OPP_SEQ))
+                # if aswesome set we want get closer, so reduce the cost
+                elif chips[x + dx][y + dy] == EMPTY and (x + dx, y + dy) in awesomeSet:
+                    children.append((point, (x + dx, y + dy), AWE))
+                else:
+                    children.append((point, (x + dx, y + dy), NORMAL))
         return children
-    
-    ######################################### USC ###################################################
-
-    def uscSelection(self, actions, game_state):
-        nextAction = random.choice(actions)
-
-        minScore = math.inf
-        for action in actions:
-            score = self.uscActions(action, game_state)
-            if minScore > score:
-                minScore = score
-                #print("uscSelection: ", minScore)
-                nextAction = action
-                #print("nextAction: ",nextAction)
-
-        #print("nextAction: ", nextAction)
-        return nextAction
-
-    #  mini distance between one of the possible action and the goal
-    def uscActions(self, action, game_state):
-        point = action["coords"]
-
-        point1s = []
-        minDistance = math.inf
-        
-        # if the agent one before it has no last action, means it is the first one
-        # then we need to find the closest distance between 4 hearts/4 corner with
-        # all the possible actions
-        if game_state.agents[(self.id - 1) % 4].last_action == None:
-            goalSet = set()
-            goalSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
-            point1s = list(goalSet)
-            minDistance = min(self.chipDistance(point, point1s), minDistance)
-            print("first: ",minDistance)
-            return minDistance
-        else:
-            color = game_state.agents[self.id].colour
-            seqColor = game_state.agents[self.id].seq_colour
-            chips = game_state.board.chips
-            for x in range(len(chips)):
-                for y in range(len(chips[0])):
-                    if chips[x][y] == color or chips[x][y] == seqColor or chips[x][y] == "#":
-                        point1s.append((x, y))
-            minDistance = min(self.chipDistance(point, point1s), minDistance)
-            return minDistance
-
-    def chipDistance(self, point, point1s):
-
-        myqueue = PriorityQueue()
-        startCost = 0
-        startNode = (point, startCost)
-        # TODO: push the initial node into the queue, with F(n)
-        myqueue.push(startNode,startCost)
-        # create a visited-node set
-        visited = set()
-        # a dict to store the best g_cost
-        best_g = {}
-        totalCost = 0
-
-        while myqueue:
-            node = myqueue.pop()
-
-            pos, cost = node
-            # take out the best cost for current pos
-            best = best_g.setdefault(pos, cost)
-
-            # check if the node has been visited, or need to reopen
-            if pos not in visited or cost < best:
-                best_g.update({pos: cost})
-                if pos in point1s:
-                    print("stop")
-                    totalCost = cost
-                    break
-
-                succNodes = self.expand(pos)
-                for succNode in succNodes:
-                    succPos, succCost = succNode
-                    newNode = (succPos, cost + succCost)
-                    myqueue.push(newNode, cost + succCost)
-        return totalCost
-    
-    # expand the eight node around current position
-    def expand(self, point):
-        x, y = point
-        smallSeqs = [[(-1, 0), (0, 0), (1, 0)],
-                [(0, -1), (0, 0), (0, 1)],
-                [(-1, -1), (0, 0), (1, 1)],
-                [(-1, 1), (0, 0), (1, -1)]]
-        children = []
-        for seq in smallSeqs:
-            for i in range(len(seq)):
-                dx, dy = seq[i]
-                if x + dx >= 0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
-                    if not(dx==dy and dx==0):
-                        children.append(((x+dx, y+dy), 1))
-                        
-        return children
-    
-    ####################################################################################################
-
-    ########################################## minimax #################################################
-    def minimaxSelection(self, actions, game_state, is_max, depth=4):
-        # a Board with weighted value
-        weightBoard = self.weightedBoard()
-
-        # try to get an initial action which is randomly chosen
-        nextAction = random.choice(actions)
-        # best Score
-        bestScore = - math.inf
-
-        # get current state of board, which pos is empty 10*10 matrix
-        chips = game_state.board.chips
-        for action in actions:
-
-            x = action["coords"][0]
-            y = action["coords"][1]
-            if (chips[x][y] == "_"):
-                color = game_state.agents[self.id].colour
-                chips[x][y] == color
-                score = self.minimax(actions, game_state, weightBoard, -math.inf, math.inf, not is_max, depth - 1)
-                chips[x][y] == "_"
-                if (score > bestScore):
-                    bestScore = score
-                    nextAction = action
-
-        # # go through all the possible cards of current agent
-        # # to get all the possible position it can place
-        # tempPos = set()
-        # for card in game_state.agents[self.id].hand:
-        #     tempPos.update(self.cardPosition(card, actions))
-        # possiblePos = list(tempPos)
-
-        # for pos in possiblePos:
-        #     # current possible position is empty
-        #     if (chips[pos[0]][pos[1]] == "_"):
-        #         # then we pretend to put the chip here
-        #         color = game_state.agents[self.id].colour
-        #         chips[pos[0]][pos[1]] = color
-        #         score = self.minimax(chips, not is_max, depth-1)
-        #         chips[pos[0]][pos[1]] = "_"
-        #         if (score>bestScore):
-        #             bestScore = score
-        return nextAction
-
-    def minimax(self, actions, game_state, weightBoard, alpha, beta, is_max, depth):
-        chips = game_state.board.chips
-        if (depth == 0):
-            return -self.evaluation(game_state, weightBoard)
-
-        # current agent wants to win
-        if (is_max):
-            bestScore = -math.inf
-            for action in actions:
-                x = action["coords"][0]
-                y = action["coords"][1]
-                if (chips[x][y] == "_"):
-                    color = game_state.agents[self.id].colour
-                    chips[x][y] == color
-                    score = self.minimax(actions, game_state, weightBoard, alpha,
-                                         beta, not is_max, depth - 1)
-                    chips[x][y] == "_"
-                    bestScore = max(bestScore, score)
-                    alpha = max(alpha, bestScore)
-                    if beta <= alpha:
-                        return bestScore
-
-            return bestScore
-        else:
-            bestScore = math.inf
-
-            for action in actions:
-                x = action["coords"][0]
-                y = action["coords"][1]
-                if (chips[x][y] == "_"):
-                    color = game_state.agents[self.id].colour
-                    chips[x][y] == color
-                    score = self.minimax(actions, game_state, weightBoard, alpha,
-                                         beta, not is_max, depth - 1)
-                    chips[x][y] == "_"
-                    bestScore = min(bestScore, score)
-                    beta = min(beta, bestScore)
-                    if beta <= alpha:
-                        return bestScore
-            return bestScore
-
-    # evaluation of Board, calculating the value of whole board
-    def evaluation(self, game_state, weightBoard):
-        # default value for chips and sequence
-        val = 1
-        seqVal = 5
-        oppVal = -1
-        oppSeqVal = -5
-
-        evaluation = 0
-        color = game_state.agents[self.id].colour
-        seqColor = game_state.agents[self.id].seq_colour
-        oppColor = game_state.agents[self.id].opp_colour
-        oppSeqColor = game_state.agents[self.id].opp_seq_colour
-
-        chips = game_state.board.chips
-
-        # go through the whole current board with chips on it
-        for i in range(len(chips)):
-            for j in range(len(chips[0])):
-                if chips[i][j] == color:
-                    evaluation += weightBoard.get((i, j)) * val
-                if chips[i][j] == seqColor:
-                    evaluation += weightBoard.get((i, j)) * seqVal
-                if chips[i][j] == oppColor:
-                    evaluation += weightBoard.get((i, j)) * oppVal
-                if chips[i][j] == oppSeqColor:
-                    evaluation += weightBoard.get((i, j)) * oppSeqVal
-
-        return evaluation
-
-    # a function to find the cards position in the board
-    # TODO: This is only using coords in actions to find the cards actions
-    def cardPosition(self, card, actions):
-        pos = set()
-        for action in actions:
-            if action['play_card'] == card:
-                pos.add(action['coords'])
-        return pos
-
-    # a dictionary maps coordinates and weight
-    def weightedBoard(self):
-        weightBoard = {}
-        for row in range(10):
-            for col in range(10):
-                # initial all the coords
-                weightBoard.update({(row, col): 1})
-                # give them a weight 2 since they are in the line with unimelb
-                if row == 0 or row == 9 or col == 0 or col == 9:
-                    weightBoard.update({(row, col): 20})
-                if col == row or row == 9 - col:
-                    weightBoard.update({(row, col): 20})
-        # change the weight of the 4 key position to 10
-        weightBoard.update({(4, 4): 100})
-        weightBoard.update({(4, 5): 100})
-        weightBoard.update({(5, 4): 100})
-        weightBoard.update({(5, 5): 100})
-
-        return weightBoard
 
 ####################################################################################################
 class PriorityQueue:
     """
-      Lowest cost priority queue data structure.
+      Implements a priority queue data structure. Each inserted item
+      has a priority associated with it and the client is usually interested
+      in quick retrieval of the lowest-priority item in the queue. This
+      data structure allows O(1) access to the lowest-priority item.
     """
 
     def __init__(self):
