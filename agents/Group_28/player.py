@@ -9,13 +9,137 @@ class myAgent(Agent):
 
     def SelectAction(self, actions, game_state):
 
+        # ucs Advanced
+        action = self.uscSelectionA(actions, game_state)
+        
         # usc
-        action = self.uscSelection(actions, game_state)
+        # action = self.uscSelection(actions, game_state)
 
         # minimax
         # action = self.minimaxSelection(actions, game_state, True, 2)
         return action
 
+    ######################################### USC Advanced ##########################################
+    def uscSelectionA(self, actions, game_state):
+        nextAction = random.choice(actions)
+
+        minScore = math.inf
+        for action in actions:
+            score = self.uscActionsA(action, game_state)
+            if minScore > score:
+                minScore = score
+                nextAction = action
+
+        return nextAction
+
+    #  mini distance between one of the possible action and the goal
+    def uscActionsA(self, action, game_state):
+        if action["type"] == "trade":
+            return math.inf
+        point = action["coords"]
+
+        point1s = []
+        minDistance = math.inf
+
+        awesomeSet = set()
+        awesomeSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
+
+        # if the agent one before it has no last action, means it is the first one
+        # then we need to find the closest distance between 4 hearts/4 corner with
+        # all the possible actions
+        if game_state.agents[(self.id - 1) % 4].last_action == None:
+            point1s = list(awesomeSet)
+            minDistance = min(self.chipDistanceA(point, point1s), minDistance)
+            print("first: ", minDistance)
+            return minDistance
+        else:
+            color = game_state.agents[self.id].colour
+            seqColor = game_state.agents[self.id].seq_colour
+            chips = game_state.board.chips
+
+            # get the current position of same color chips and JOKER and empty 4 Hearts
+            for x in range(len(chips)):
+                for y in range(len(chips[0])):
+                    if chips[x][y] == color or chips[x][y] == seqColor:
+                        point1s.append((x, y))
+                    if (x, y) in awesomeSet and chips[x][y] == EMPTY:
+                        point1s.append((x, y))
+
+            # try to get closer with same color chips or JOKER or 4 Hearts
+            # consider the obstacle(opp_color) in the way, and four directions
+            minDistance = min(self.chipDistanceA(point, point1s), minDistance)
+            return minDistance
+
+    # the minimum distance between point and one of the point in point1s
+    def chipDistanceA(self, point, point1s):
+
+        myqueue = PriorityQueue()
+        startCost = 0
+        parentPoint = (-1, -1)
+        startNode = (parentPoint, point, startCost)
+        # TODO: push the initial node into the queue, with F(n)
+        myqueue.push(startNode, startCost)
+        # create a visited-node set
+        visited = set()
+        # a dict to store the best g_cost
+        best_g = {}
+        totalCost = 0
+        expandTime = 0
+
+        while myqueue:
+            node = myqueue.pop()
+            print(node)
+            expandTime += 1
+            parent, pos, cost = node
+            # take out the best cost for current pos
+            best = best_g.setdefault(pos, cost)
+
+            # check if the node has been visited, or need to reopen
+            if pos not in visited or cost < best:
+                best_g.update({pos: cost})
+                if pos in point1s:
+                    totalCost = cost
+                    break
+
+                if expandTime == 1:
+                    succNodes = self.expandA(parent, pos, True)
+                else:
+                    succNodes = self.expandA(parent, pos, False)
+
+                if succNodes == []:
+                    return math.inf
+                for succNode in succNodes:
+                    succParent, succPos, succCost = succNode
+                    newNode = (succParent,succPos, cost + succCost)
+                    myqueue.push(newNode, cost + succCost)
+        return totalCost
+
+    def expandA(self, parentPoint, point, isRoot):
+        x0, y0 = parentPoint
+        x, y = point
+
+        # expand 8 directions
+        if isRoot:
+            smallSeqs = [[(-1, 0), (0, 0), (1, 0)],
+                         [(0, -1), (0, 0), (0, 1)],
+                         [(-1, -1), (0, 0), (1, 1)],
+                         [(-1, 1), (0, 0), (1, -1)]]
+            children = []
+            for seq in smallSeqs:
+                for i in range(len(seq)):
+                    dx, dy = seq[i]
+                    if x + dx >= 0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
+                        if not (dx == dy and dx == 0):
+                            children.append((point, (x + dx, y + dy), 1))
+        else:
+            # only expand one direction
+            children = []
+            dx = x - x0
+            dy = y - y0
+            if x+dx>=0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
+                children.append((point, (x + dx, y + dy), 1))
+        return children
+    
     ######################################### USC ###################################################
 
     def uscSelection(self, actions, game_state):
