@@ -26,8 +26,8 @@ HEURISTIC = [[100,3,4,4,4,4,4,4,3,100],
 # Weighted value.
 # If the ATTACK > DEFENSE, we pay more attention to form our sequence.
 # otherwise, we pay more attention to stop the enemy from forming sequence.
-ATTACK = 1.5
-DEFENSE = 1
+ATTACK = 1
+DEFENSE = 0.1
 
 # CLASS DEF ----------------------------------------------------------------------------------------------------------#
 class myAgent(Agent):
