@@ -1,6 +1,7 @@
 from template import Agent
 import heapq, random
 import math
+from Sequence.sequence_model import *
 
 """
 Blind Search using UCS(exploring in four directions)
