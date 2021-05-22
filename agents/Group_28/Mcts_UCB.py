@@ -2,7 +2,7 @@
 
 # Author:  Jiawei Luo, Yifan Deng, Xinzhe Wang
 # Date:    05/19/2021
-# Purpose: Implementing MCTS with average scores in agent of the Sequence Game
+# Purpose: Implementing MCTS with UCB in agent of the Sequence Game
 
 # IMPORTS ------------------------------------------------------------------------------------------------------------#
 import copy
@@ -28,7 +28,7 @@ class myAgent(Agent):
         if trade:
             return random.choice(actions)
         else:
-            timeleft = 0.9
+            timeleft = 0.9 # the time limit each round
             color = game_state.agents[self.id].colour
             thisMcts = MCTS(actions, game_state, color)
             root_Node = thisMcts.mcts(timeleft)
@@ -94,7 +94,7 @@ class Node:
     """
     def backPropagate(self, reward):
         self._visits += 1
-        self._value_Q = self._value_Q + ((reward - self._value_Q) / self._visits)
+        self._value_Q = self._value_Q + reward
         if self._parent is None:
             return
         self._parent.backPropagate(reward*self._discountFactor)
@@ -109,9 +109,20 @@ class Node:
     def findBest_child(self):
         bestChild = self._children[0]
         for child in self._children:
-            if child.getValue() > bestChild.getValue():
+            if child.calcuate_UCB() > bestChild.calcuate_UCB():
                 bestChild = child
         return bestChild
+
+    def calcuate_UCB(self):
+        C_p = 1/math.sqrt(2.0)
+        # UCB = q_value / visits + 2C_p * sqrt(2 * ln(total_visits) / visits)
+        total_visits = self._parent._visits
+        visits = self._visits
+        Q_s_a = self._value_Q
+        usb = Q_s_a / visits + 2* C_p * math.sqrt(2 * math.log(total_visits)/visits)
+        return usb
+
+
 
 
 class MCTS(object):
@@ -172,7 +183,7 @@ class MCTS(object):
             if len(drafts_copy) > 0:
                 # action_copy, rewardMax = maxRewareAction(actions_copy, current_game_state, this_color)
                 action_copy = random.choice(actions_copy) # randomly choose action
-                rewardMax = calReward(action_copy,current_game_state, this_color)
+                rewardMax = calReward(action_copy, current_game_state, this_color)
                 newState, actions_copy, drafts = generateNextState(current_game_state, action_copy, actions_copy,
                                                                    drafts_copy, this_color)
                 reward += rewardMax
