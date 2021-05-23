@@ -14,25 +14,25 @@ class myAgent(Agent):
     def __init__(self, _id):
         super().__init__(_id)
 
-#         self.draft_weight = {'draft-take-two-eyed': 177.69943703971265, 'draft-take-one-eyed': 95.13716326170085, 'draft-seq-num': 43.63648248423927, 'draft-chip-num': 14.76295710890952}
-#         self.remove_weight ={'remove-hearts': 1071.17265270355816, 'remove-seq-num': 48.64349546474051, 'remove-chip-num': -1.0161758953786348, 'remove-opp-chip-num': 1.3113270145486915}
-#         self.play_weight = {'play-hearts': 115.220117390812621, 'play-seq-num': 94.47075623726205, 'play-chip-num': 28.565343263978622, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 10.592611505323564}
-        self.draft_weight = AdvancedDict()
-        self.remove_weight = AdvancedDict()
-        self.play_weight = AdvancedDict()
+        self.draft_weight = {'draft-take-two-eyed': 177.69943703971265, 'draft-take-one-eyed': 95.13716326170085, 'draft-seq-num': 43.63648248423927, 'draft-chip-num': 14.76295710890952}
+        self.remove_weight ={'remove-hearts': 1071.17265270355816, 'remove-seq-num': 48.64349546474051, 'remove-chip-num': -1.0161758953786348, 'remove-opp-chip-num': 1.3113270145486915}
+        self.play_weight = {'play-hearts': 115.220117390812621, 'play-seq-num': 94.47075623726205, 'play-chip-num': 28.565343263978622, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 10.592611505323564}
+#         self.draft_weight = AdvancedDict()
+#         self.remove_weight = AdvancedDict()
+#         self.play_weight = AdvancedDict()
 
     def SelectAction(self, actions, game_state):
-        count = 1
-        for line in open("QlearnWeight.txt", "r"):
-            line = line.strip()
-            if count == 1:
-                self.draft_weight = eval(line)
-                count += 1
-            elif count == 2:
-                self.remove_weight = eval(line
-                count += 1
-            else:
-                self.play_weight = eval(line)
+#         count = 1
+#         for line in open("QlearnWeight.txt", "r"):
+#             line = line.strip()
+#             if count == 1:
+#                 self.draft_weight = eval(line)
+#                 count += 1
+#             elif count == 2:
+#                 self.remove_weight = eval(line
+#                 count += 1
+#             else:
+#                 self.play_weight = eval(line)
                 
         whole_state = (game_state, actions)
         action = random.choice(actions)
