@@ -2,27 +2,31 @@ from numpy import sign
 from template import Agent
 import heapq
 from Sequence.sequence_model import *
-import random
 
 """
 Authors: Group-28 Unimelb comp90054 2021s1
-If want to train this model, need to use game_test.py and sequence_runner_test.py, and uncomment the weight output file
-
 """
 EPSILON = 0.05
 GAMMA = 0.9
-ALPHA = 0.005
+ALPHA = 0.001
 
 class myAgent(Agent):
     def __init__(self, _id):
         super().__init__(_id)
-        self.draft_weight = {"draft-take-two-eyed":200,"draft-take-one-eyed":50,"draft-seq-num":45,"draft-closest-friend-distance":5}
-        self.remove_weight = {"remove-hearts":100,"remove-seq-num":60,"remove-closest-friend-distance":10,"remove-opp-num":2}
-        self.play_weight = {"play-hearts":50,"play-seq-num":100,"play-closest-friend-distance":10,"play-opp-seq-num":1}
-        print("initial success")
-        # self.draft_weight = AdvancedDict()
-        # self.remove_weight = AdvancedDict()
-        # self.play_weight = AdvancedDict()
+        # self.draft_weight = {'draft-take-two-eyed': 171.17265270355816, 'draft-take-one-eyed': 95.28117884305745,
+        #  'draft-seq-num': 40.70364154988703, 'draft-chip-num': 15.220117390812621}
+        # self.remove_weight ={'remove-hearts': 8.815621292629565, 'remove-seq-num': 48.44869693213183,
+        #  'remove-chip-num': -0.39674240417940365, 'remove-opp-chip-num': 1.178165169393672}
+        # self.play_weight = {'play-hearts': 0.12027839986291307, 'play-seq-num': 90.4373012449009, 'play-chip-num': 20.296234895319923,
+        #  'play-opp-seq-num': 50.0, 'play-opp-chip-num': 5.0528931621012045}
+
+        self.draft_weight = {'draft-take-two-eyed': 177.69943703971265, 'draft-take-one-eyed': 95.13716326170085, 'draft-seq-num': 43.63648248423927, 'draft-chip-num': 14.76295710890952}
+        self.remove_weight ={'remove-hearts': 1000, 'remove-seq-num': 48.64349546474051, 'remove-chip-num': -1.0161758953786348, 'remove-opp-chip-num': 1.3113270145486915}
+        self.play_weight = {'play-hearts': 100, 'play-seq-num': 94.47075623726205, 'play-chip-num': 28.565343263978622, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 10.592611505323564}
+
+    # self.draft_weight = AdvancedDict()
+    #     self.remove_weight = AdvancedDict()
+    #     self.play_weight = AdvancedDict()
 
     def SelectAction(self, actions, game_state):
 
@@ -97,10 +101,14 @@ class myAgent(Agent):
             # not only care about winning but also need to penalize if put
             # wrong place and let the next agent win
             reward = game_state.agents[self.id].score - \
-                     last_game_state.agents[self.id].score
+                     last_game_state.agents[self.id].score + \
+                     game_state.agents[(self.id + 2) % 4].score - \
+                     last_game_state.agents[(self.id + 2) % 4].score
             penalize = game_state.agents[(self.id + 1) % 4].score - \
-                       last_game_state.agents[(self.id + 1) % 4].score
-            self.obeserveTransition(self.lastState, self.lastAction, whole_state, reward - penalize / 5)
+                       last_game_state.agents[(self.id + 1) % 4].score+ \
+                       game_state.agents[(self.id + 3) % 4].score - \
+                       last_game_state.agents[(self.id + 3) % 4].score
+            self.obeserveTransition(self.lastState, self.lastAction, whole_state, reward - penalize)
         return whole_state
 
     def obeserveTransition(self, whole_state, action, next_state, deltaReward):
@@ -116,6 +124,7 @@ class myAgent(Agent):
                                        self.getQValue("draft", self.draft_weight,
                                                       whole_state, action))
         for key in remove_feature.keys():
+            print("updateQvalue-remove")
             self.remove_weight[key] += remove_feature[key] * ALPHA * \
                                        (reward + GAMMA * self.getValue("remove",next_state) -
                                         self.getQValue("remove", self.remove_weight,
@@ -129,17 +138,13 @@ class myAgent(Agent):
         print("draft weight:", self.draft_weight)
         print("remove weight:", self.remove_weight)
         print("play weight:", self.play_weight)
-#         f = open("QlearnWeight.txt", 'w')
-#         f.write("draft weight:")
-#         f.write(str(self.draft_weight))
-#         f.write("\n")
-#         f.write("remove weight:")
-#         f.write(str(self.remove_weight))
-#         f.write("\n")
-#         f.write("play weight:")
-#         f.write(str(self.play_weight))
-#         f.write("\n")
-
+        f = open("QlearnWeight.txt", 'w')
+        f.write(str(self.draft_weight))
+        f.write("\n")
+        f.write(str(self.remove_weight))
+        f.write("\n")
+        f.write(str(self.play_weight))
+        f.write("\n")
     def getQValue(self, feature_name, weights, whole_state, action):
         print("In get Qvalue and feature name is",feature_name)
         qValue = 0.0
@@ -194,15 +199,11 @@ class myAgent(Agent):
             if chips[x][y] == EMPTY:
                 # pretend to play to see if can make a sequence
                 chips[x][y] = color
-                # {'num_seq':num_seq, 'orientation':[k for k,v in seq_found.items() if v], 'coords':seq_coords},
-                # seq_type
                 print("try to call checkSeq")
                 seq_info = self.checkSeq(chips, plr_state, (x, y))
                 print("calling checkSeq success and info is:",seq_info)
                 chips[x][y] = EMPTY
-                feature["draft-seq-num"] = float(max(seq_info["num_seq"], feature["draft-seq-num"]))
-                feature["draft-closest-friend-distance"] = min(self.uscActionsA((x,y), game_state, True)*10,
-                                                               feature["draft-closest-friend-distance"])
+                feature["draft-seq-num"],feature["draft-chip-num"] = seq_info
         return feature
 
     def removeFeature(self, position, chips, game_state):
@@ -215,21 +216,24 @@ class myAgent(Agent):
         color = game_state.agents[self.id].colour
         opp_color = game_state.agents[(self.id + 1) % 4].opp_colour
         plr_state = game_state.agents[self.id]
+        opp_plr_state = game_state.agents[(self.id + 1) % 4]
         awesomeList = [(4, 4), (4, 5), (5, 4), (5, 5)]
 
         # if we are removing the hearts, good move!!
         if position in awesomeList:
-            feature["remove-hearts"] = 1.0
+                feature["remove-hearts"] = 1.0
         # if not heart, we should remove the pos that if we put a chip there, we can
         # make a sequence
         x, y = position
         chips[x][y] = color
         seq_info = self.checkSeq(chips, plr_state, (x, y))
         chips[x][y] = EMPTY
-        feature["remove-seq-num"] = float(max(seq_info["num_seq"], feature["remove-seq-num"]))
-        feature["remove-closest-friend-distance"] = min(self.uscActionsA(position, game_state, True)*10,
-                                                        feature["remove-closest-friend-distance"])
-        feature["remove-opp-num"] = self.oppAlmostSeq(position, chips, opp_color)
+        feature["remove-seq-num"],feature["remove-chip-num"] = seq_info
+        chips[x][y] = opp_color
+        seq_info = self.checkSeq(chips, opp_plr_state, (x, y))
+        chips[x][y] = EMPTY
+        temp, feature["remove-opp-chip-num"] = seq_info
+        print("remove-opp-chip-num",feature["remove-opp-chip-num"])
         return feature
 
     def playFeature(self, position, chips, game_state):
@@ -244,6 +248,7 @@ class myAgent(Agent):
         opp_color = game_state.agents[(self.id + 1) % 4].opp_colour
         plr_state = game_state.agents[self.id]
         opp_plr_state = game_state.agents[(self.id + 1) % 4]
+        print("opp_plr:",opp_plr_state)
         awesomeList = [(4, 4), (4, 5), (5, 4), (5, 5)]
 
         # if we are placing on the hearts, good move!!
@@ -255,14 +260,12 @@ class myAgent(Agent):
         chips[x][y] = color
         seq_info = self.checkSeq(chips, plr_state, (x, y))
         chips[x][y] = EMPTY
-        feature["play-seq-num"] = float(max(seq_info["num_seq"], feature["play-seq-num"]))
-        feature["play-closest-friend-distance"] = min(self.uscActionsA(position, game_state, True)*10,
-                                                      feature["play-closest-friend-distance"])
-
+        feature["play-seq-num"],feature["play-chip-num"] = seq_info
         chips[x][y] = opp_color
         seq_info = self.checkSeq(chips, opp_plr_state, (x, y))
         chips[x][y] = EMPTY
-        feature["play-opp-seq-num"] = float(max(seq_info["num_seq"], feature["play-opp-seq-num"]))
+        feature["play-opp-seq-num"],feature["play-opp-chip-num"] = seq_info
+        print("play feature",feature)
         return feature
 
     ###learningAgent
@@ -273,6 +276,7 @@ class myAgent(Agent):
         self.lastState = None
         self.lastAction = None
 
+    
     def doAction(self, whole_state, action):
         """
             Called by inherited class when
@@ -280,6 +284,8 @@ class myAgent(Agent):
         """
         self.lastState = whole_state
         self.lastAction = action
+
+    ## for sequence
 
     def register(self, whole_state):
         self.startEpoch()
@@ -290,8 +296,9 @@ class myAgent(Agent):
         deltaReward = game_state.agents[self.id].score - \
                       last_game_state.agents[self.id].score
         self.obeserveTransition(self.lastState, self.lastAction, whole_state, deltaReward)
+        # self.endEpoch()
 
-
+    ######################################################33
     def checkSeq(self, chips, plr_state, last_coords):
         """
         Copy from sequence_model for check if there ganna be a sequence
@@ -323,10 +330,18 @@ class myAgent(Agent):
         hz = [(0, -4), (0, -3), (0, -2), (0, -1), (0, 0), (0, 1), (0, 2), (0, 3), (0, 4)]
         d1 = [(-4, -4), (-3, -3), (-2, -2), (-1, -1), (0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
         d2 = [(-4, 4), (-3, 3), (-2, 2), (-1, 1), (0, 0), (1, -1), (2, -2), (3, -3), (4, -4)]
+
+        chip_count = 0
+
         for seq, seq_name in [(vr, 'vr'), (hz, 'hz'), (d1, 'd1'), (d2, 'd2')]:
             coord_list = [(r + lr, c + lc) for r, c in seq]
             coord_list = [i for i in coord_list if 0 <= min(i) and 9 >= max(i)]  # Sequences must stay on the board.
             chip_str = ''.join([chips[r][c] for r, c in coord_list])
+
+            for chip_chr in chip_str:
+                if chip_chr == clr or chip_chr == sclr:
+                    chip_count += 1
+
             # Check if there exists 4 player chips either side of new chip (counts as forming 2 sequences).
             if nine_chip(chip_str, clr):
                 seq_found[seq_name] += 2
@@ -363,12 +378,10 @@ class myAgent(Agent):
         num_seq = sum(seq_found.values())
         if num_seq > 1 and seq_type != HOTBSEQ:
             seq_type = MULTSEQ
-        return {'num_seq': num_seq, 'orientation': [k for k, v in seq_found.items() if v], 'coords': seq_coords}
+        print("checkseq-num",chip_count)
+        return (num_seq, chip_count)
 
     def oppAlmostSeq(self, position, chips, opp_color):
-      """
-      Calculate in four directions, how many opponents are there
-      """
         seqs = [[(-4, 0), (-3, 0), (-2, 0), (-1, 0), (0, 0), (1, 0), (2, 0), (3, 0), (4, 0)],
                 [(0, -4), (0, -3), (0, -2), (0, -1), (0, 0), (0, 1), (0, 2), (0, 3), (0, 4)],
                 [(-4, -4), (-3, -3), (-2, -2), (-1, -1), (0, 0), (1, 1), (2, 2), (3, 3), (4, 4)],
@@ -385,211 +398,6 @@ class myAgent(Agent):
                     opp_num_max = max(opp_num_max, opp_num)
         return opp_num_max
 
-    #  mini distance between one of the possible action and the goal
-    def uscActionsA(self, point, game_state, isFriend):
-        if point is None:
-            return 3
-        point1s = []
-        minDistance = 9
-
-        awesomeSet = set()
-        awesomeSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
-
-        # if the agent one before it has no last action, means it is the first one
-        # then we need to find the closest distance between 4 hearts/4 corner with
-        # all the possible actions
-        if game_state.agents[(self.id - 1) % 4].last_action == None:
-            if not isFriend:
-                return 9
-            point1s = list(awesomeSet)
-            print("point1s:", point1s)
-            minDistance = min(self.chipDistanceH(point, point1s, game_state), minDistance)
-            print(point)
-            print("first round distance:", minDistance)
-            return minDistance
-        else:
-            color = game_state.agents[self.id].colour
-            seqColor = game_state.agents[self.id].seq_colour
-            opp_color = game_state.agents[self.id].opp_colour
-            opp_seqColor = game_state.agents[self.id].opp_seq_colour
-            chips = game_state.board.chips
-
-            # get the current position of same color chips and JOKER and empty 4 Hearts
-            for x in range(len(chips)):
-                for y in range(len(chips[0])):
-                    if isFriend:
-                        if chips[x][y] == color or chips[x][y] == seqColor:
-                            point1s.append((x, y))
-                        if (x, y) in awesomeSet and chips[x][y] == EMPTY:
-                            point1s.append((x, y))
-                        # append four corner
-                        point1s.append((x, y))
-                    if not isFriend:
-                        if chips[x][y] == opp_color or chips[x][y] == opp_seqColor:
-                            point1s.append((x, y))
-
-            # try to get closer with same color chips or JOKER or 4 Hearts
-            # consider the obstacle(opp_color) in the way, and four directions
-            minDistance = min(self.chipDistanceH(point, point1s, game_state), minDistance)
-            return minDistance
-
-    # the minimum distance between point and one of the point in point1s
-    def chipDistanceH(self, point, point1s, game_state):
-      
-        myqueue = PriorityQueue()
-        startCost = 0
-        parentPoint = (-1, -1)
-        startNode = (parentPoint, point, startCost)
-        # TODO: push the initial node into the queue, with F(n)
-        myqueue.push(startNode, startCost)
-        # create a visited-node set
-        visited = set()
-        # a dict to store the best g_cost
-        best_g = {}
-        totalCost = 0
-        expandTime = 0
-
-        while myqueue:
-            node = myqueue.pop()
-            expandTime += 1
-            parent, pos, cost = node
-            # take out the best cost for current pos
-            best = best_g.setdefault(pos, cost)
-
-            # check if the node has been visited, or need to reopen
-            if pos not in visited or cost < best:
-                best_g.update({pos: cost})
-                if pos in point1s:
-                    totalCost = cost
-                    break
-
-                # if it's the first time to explore, then 8 positions around it
-                # should be expanded
-                if expandTime == 1:
-                    succNodes = self.expandH(parent, pos, game_state, True)
-                else:
-                    # if not, only need to expand in one direction
-                    succNodes = self.expandH(parent, pos, game_state, False)
-
-                if succNodes == []:
-                    succNodes = self.expandA(pos)
-                for succNode in succNodes:
-                    succParent, succPos, succCost = succNode
-                    newNode = (succParent, succPos, cost + succCost)
-                    myqueue.push(newNode, cost + succCost)
-        return totalCost
-
-        # used to expand the node
-
-    def expandH(self, parentPoint, point, game_state, isRoot):
-
-        # chips is used to find it expand position contains opponent
-        chips = game_state.board.chips
-        opp_color = game_state.agents[self.id].opp_colour
-        opp_seq_color = game_state.agents[self.id].opp_seq_colour
-
-        # point's parent
-        x0, y0 = parentPoint
-        # current node which is going to be expanded
-        x, y = point
-
-        # the 4 hearts and four corner
-        awesomeSet = set()
-        awesomeSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
-
-        # expand 8 directions
-        if isRoot:
-            smallSeqs = [[(-1, 0), (0, 0), (1, 0)],
-                         [(0, -1), (0, 0), (0, 1)],
-                         [(-1, -1), (0, 0), (1, 1)],
-                         [(-1, 1), (0, 0), (1, -1)]]
-            children = []
-            for seq in smallSeqs:
-                for i in range(len(seq)):
-                    dx, dy = seq[i]
-                    if x + dx >= 0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
-                        if not (dx == dy and dx == 0):
-                            # if opp is in the way, increase the cost
-                            if chips[x + dx][y + dy] == opp_color:
-                                children.append((point, (x + dx, y + dy), 1))
-                            elif chips[x + dx][y + dy] == opp_seq_color:
-                                children.append((point, (x + dx, y + dy), 1))
-                            # if aswesome set we want get closer, so reduce the cost
-                            elif chips[x + dx][y + dy] == EMPTY and (x + dx, y + dy) in awesomeSet:
-                                children.append((point, (x + dx, y + dy), 1))
-                            else:
-                                children.append((point, (x + dx, y + dy), 1))
-        else:
-            # only expand one direction
-            children = []
-            dx = x - x0
-            dy = y - y0
-            if x + dx >= 0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
-                # if opp is in the way, increase the cost
-                if chips[x + dx][y + dy] == opp_color:
-                    children.append((point, (x + dx, y + dy), 1))
-                elif chips[x + dx][y + dy] == opp_seq_color:
-                    children.append((point, (x + dx, y + dy), 1))
-                # if aswesome set we want get closer, so reduce the cost
-                elif chips[x + dx][y + dy] == EMPTY and (x + dx, y + dy) in awesomeSet:
-                    children.append((point, (x + dx, y + dy), 1))
-                else:
-                    children.append((point, (x + dx, y + dy), 1))
-        return children
-
-    # expand the eight node around current position
-    def expandA(self, point):
-        x, y = point
-        smallSeqs = [[(-1, 0), (0, 0), (1, 0)],
-                     [(0, -1), (0, 0), (0, 1)],
-                     [(-1, -1), (0, 0), (1, 1)],
-                     [(-1, 1), (0, 0), (1, -1)]]
-        children = []
-        for seq in smallSeqs:
-            for i in range(len(seq)):
-                dx, dy = seq[i]
-                if x + dx >= 0 and x + dx < 10 and y + dy >= 0 and y + dy < 10:
-                    if not (dx == dy and dx == 0):
-                        children.append((point, (x + dx, y + dy), 1))
-        return children
-
-
-####################################################################################################
-class PriorityQueue:
-    """
-      Lowest cost priority queue data structure.
-    """
-
-    def __init__(self):
-        self.heap = []
-        self.count = 0
-
-    def push(self, item, priority):
-        entry = (priority, self.count, item)
-        heapq.heappush(self.heap, entry)
-        self.count += 1
-
-    def pop(self):
-        (_, _, item) = heapq.heappop(self.heap)
-        return item
-
-    def isEmpty(self):
-        return len(self.heap) == 0
-
-    def update(self, item, priority):
-        # If item already in priority queue with higher priority, update its priority and rebuild the heap.
-        # If item already in priority queue with equal or lower priority, do nothing.
-        # If item not in priority queue, do the same thing as self.push.
-        for index, (p, c, i) in enumerate(self.heap):
-            if i == item:
-                if p <= priority:
-                    break
-                del self.heap[index]
-                self.heap.append((priority, c, item))
-                heapq.heapify(self.heap)
-                break
-        else:
-            self.push(item, priority)
 
 
 class AdvancedDict(dict):
