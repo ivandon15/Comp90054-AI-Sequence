@@ -140,13 +140,10 @@ class myAgent(Agent):
         print("remove weight:", self.remove_weight)
         print("play weight:", self.play_weight)
         f = open("QlearnWeight.txt", 'w')
-        f.write("draft weight:")
         f.write(str(self.draft_weight))
         f.write("\n")
-        f.write("remove weight:")
         f.write(str(self.remove_weight))
         f.write("\n")
-        f.write("play weight:")
         f.write(str(self.play_weight))
         f.write("\n")
     def getQValue(self, feature_name, weights, whole_state, action):
@@ -203,15 +200,11 @@ class myAgent(Agent):
             if chips[x][y] == EMPTY:
                 # pretend to play to see if can make a sequence
                 chips[x][y] = color
-                # {'num_seq':num_seq, 'orientation':[k for k,v in seq_found.items() if v], 'coords':seq_coords},
-                # seq_type
                 print("try to call checkSeq")
                 seq_info = self.checkSeq(chips, plr_state, (x, y))
                 print("calling checkSeq success and info is:",seq_info)
                 chips[x][y] = EMPTY
                 feature["draft-seq-num"],feature["draft-chip-num"] = seq_info
-                # feature["draft-closest-friend-distance"] = max(self.uscActionsA((x,y), game_state, True)* 10.0,
-                #                                                feature["draft-closest-friend-distance"])
         return feature
 
     def removeFeature(self, position, chips, game_state):
@@ -242,9 +235,6 @@ class myAgent(Agent):
         chips[x][y] = EMPTY
         temp, feature["remove-opp-chip-num"] = seq_info
         print("remove-opp-chip-num",feature["remove-opp-chip-num"])
-        # feature["remove-closest-friend-distance"] = max(self.uscActionsA(position, game_state, True),
-        #                                                 feature["remove-closest-friend-distance"])
-        # feature["remove-opp-num"] = self.oppAlmostSeq(position, chips, opp_color)
         return feature
 
     def playFeature(self, position, chips, game_state):
@@ -272,8 +262,6 @@ class myAgent(Agent):
         seq_info = self.checkSeq(chips, plr_state, (x, y))
         chips[x][y] = EMPTY
         feature["play-seq-num"],feature["play-chip-num"] = seq_info
-        # feature["play-closest-friend-distance"] = max(self.uscActionsA(position, game_state, True),
-        #                                               feature["play-closest-friend-distance"])
         chips[x][y] = opp_color
         seq_info = self.checkSeq(chips, opp_plr_state, (x, y))
         chips[x][y] = EMPTY
@@ -289,18 +277,7 @@ class myAgent(Agent):
         self.lastState = None
         self.lastAction = None
 
-    # def endEpoch(self):
-    #
-    #     if self.episodesSoFar < self.numEpisode:
-    #         self.accumTrainRewards += self.epoch_reward
-    #     else:
-    #         self.accumTestRewards += self.epoch_reward
-    #     self.episodesSoFar += 1
-    #     if self.episodesSoFar >= self.numEpisode:
-    #         # follow policy
-    #         self.epsilon = 0.0
-    #         self.alpha = 0.0
-
+    
     def doAction(self, whole_state, action):
         """
             Called by inherited class when
