@@ -1,3 +1,3 @@
-{'draft-take-two-eyed': 177.69943703971265, 'draft-take-one-eyed': 95.13716326170085,'draft-seq-num': 43.63648248423927, 'draft-chip-num': 14.76295710890952}
-{'remove-hearts': 1000, 'remove-seq-num': 48.64349546474051,'remove-chip-num': -1.0161758953786348, 'remove-opp-chip-num': 1.3113270145486915}
-{'play-hearts': 100, 'play-seq-num': 94.47075623726205, 'play-chip-num': 28.565343263978622,'play-opp-seq-num': 50.0, 'play-opp-chip-num': 10.592611505323564}
+{'draft-take-two-eyed': 177.69943703971265, 'draft-take-one-eyed': 95.13716326170085, 'draft-seq-num': 43.63648248423927, 'draft-chip-num': 14.76295710890952}
+{'remove-hearts': 1071.17265270355816, 'remove-seq-num': 48.64349546474051, 'remove-chip-num': -1.0161758953786348, 'remove-opp-chip-num': 1.3113270145486915}
+{'play-hearts': 115.220117390812621, 'play-seq-num': 94.47075623726205, 'play-chip-num': 28.565343263978622, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 10.592611505323564}
