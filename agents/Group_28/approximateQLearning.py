@@ -1,12 +1,16 @@
+# INFORMATION ------------------------------------------------------------------------------------------------------- #
+
+# Author:  Jiawei Luo, Yifan Deng, Xinzhe Wang
+# Date:    05/25/2021
+# Purpose: Implementing Reinforcement Learning (approximate Q-Function) in agent of the Sequence Game
+
+# IMPORTS ------------------------------------------------------------------------------------------------------------#
 from numpy import sign
 from template import Agent
 import heapq
 from Sequence.sequence_model import *
 import math
-"""
-Authors: Group-28 Unimelb comp90054 2021s1
 
-"""
 EPSILON = 0.05
 GAMMA = 0.9
 ALPHA = 0.001
@@ -31,7 +35,6 @@ class myAgent(Agent):
                 count += 1
             else:
                 self.play_weight = eval(line)
-        print("hi --init")
         print(self.play_weight)
         whole_state = (game_state, actions)
         action = random.choice(actions)
@@ -48,7 +51,6 @@ class myAgent(Agent):
         argMaxAction = random.choice(actions)
 
         if len(actions) == 0:
-            # TODO: should it return none or {'play_card':None...}
             return None
 
         maxValue = 0
@@ -338,9 +340,8 @@ class myAgent(Agent):
         print("play-opp-seq-num",feature["play-opp-seq-num"])
         return feature
 
-    ###learningAgent
+    # learning helper functions------------------------------------------------
 
-    # TODO: start and end suppose to be present the average reward only
     def startEpoch(self):
         # starting a new round
         self.lastState = None
@@ -352,9 +353,7 @@ class myAgent(Agent):
         """
         self.lastState = whole_state
         self.lastAction = action
-
-    ## for sequence
-
+        
     def register(self, whole_state):
         self.startEpoch()
 
@@ -366,9 +365,7 @@ class myAgent(Agent):
                       game_state.agents[(self.id+1)%4].score - \
                       last_game_state.agents[(self.id+1)%4].score
         self.obeserveTransition(self.lastState, self.lastAction, whole_state, deltaReward)
-        # self.endEpoch()
 
-    ######################################################33
     def checkSeq(self, chips, plr_state, last_coords):
         """
         Copy from sequence_model for check if there ganna be a sequence
@@ -475,7 +472,6 @@ class myAgent(Agent):
         startCost = 0
         parentPoint = (-1, -1)
         startNode = (parentPoint, point, startCost)
-        # TODO: push the initial node into the queue, with F(n)
         myqueue.push(startNode, startCost)
         # create a visited-node set
         visited = set()
@@ -490,7 +486,6 @@ class myAgent(Agent):
             parent, pos, cost = node
             # take out the best cost for current pos
             best = best_g.setdefault(pos, cost)
-
             # check if the node has been visited, or need to reopen
             if pos not in visited or cost < best:
                 best_g.update({pos: cost})
@@ -505,7 +500,6 @@ class myAgent(Agent):
                 else:
                     # if not, only need to expand in one direction
                     succNodes = self.expandH(parent, pos, game_state, False)
-
                 if succNodes == []:
                     return math.inf
                 for succNode in succNodes:
@@ -514,9 +508,9 @@ class myAgent(Agent):
                     myqueue.push(newNode, cost + succCost)
         return totalCost
 
-        # used to expand the node
+    
     def expandH(self, parentPoint, point, game_state, isRoot):
-        # cost of every path
+        # used to expand the node, cost of every path
         OPP = 4
         OPP_SEQ = 5
         NORMAL = 2
@@ -577,7 +571,7 @@ class myAgent(Agent):
         return children
 
 
-####################################################################################################
+# Helper class -------------------------------------------------------------------
 class PriorityQueue:
     """
       Lowest cost priority queue data structure.
