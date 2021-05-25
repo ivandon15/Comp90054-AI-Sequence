@@ -164,20 +164,31 @@ class myAgent(Agent):
     def updateQValue(self, lastState, current_state, last_action, reward):
         # update three q values respectively
         draft_feature, remove_feature, play_feature = self.getFeatures(lastState, last_action)
-        for key in draft_feature.keys():
-            self.draft_weight[key] += ALPHA * (reward + GAMMA * self.getValue("draft",current_state) -
-                                       self.getQValue("draft", self.draft_weight,lastState, last_action))\
-                                      *draft_feature[key]
-        for key in remove_feature.keys():
-            print("updateQvalue-remove")
-            self.remove_weight[key] += ALPHA * (reward + GAMMA * self.getValue("remove",current_state) -
-                                        self.getQValue("remove", self.remove_weight,lastState, last_action))\
-                                       *remove_feature[key]
-        for key in play_feature.keys():
-            print("play feature:",key)
-            self.play_weight[key] += ALPHA * (reward + GAMMA * self.getValue("play`",current_state) -
-                                      self.getQValue("play", self.play_weight,lastState, last_action))\
-                                     *play_feature[key]
+        type = last_action["type"]
+        if type == "place":
+            for key in play_feature.keys():
+                print("play feature:",key)
+                self.play_weight[key] += ALPHA * (reward + GAMMA * self.getValue("play`",current_state) -
+                                          self.getQValue("play", self.play_weight,lastState, last_action))\
+                                         *play_feature[key]
+            prevalue = self.getQValue("play", self.play_weight, lastState, last_action)
+            f = open("QlearnFeature.txt", 'w')
+            f.write("p\n")
+            f.write(str(prevalue)+";;")
+            print("updateQvalue:",self.getQValue("play", self.play_weight,lastState, last_action))
+            f.write(str(play_feature))
+        if type == "remove":
+            for key in remove_feature.keys():
+                print("updateQvalue-remove")
+                self.remove_weight[key] += ALPHA * (reward + GAMMA * self.getValue("remove",current_state) -
+                                            self.getQValue("remove", self.remove_weight,lastState, last_action))\
+                                           *remove_feature[key]
+            prevalue = self.getQValue("remove", self.remove_weight,lastState, last_action)
+            f = open("QlearnFeature.txt", 'w')
+            f.write("r\n")
+            f.write(str(prevalue)+";;")
+            f.write(str(remove_feature))
+
 
         print("draft weight:", self.draft_weight)
         print("remove weight:", self.remove_weight)
