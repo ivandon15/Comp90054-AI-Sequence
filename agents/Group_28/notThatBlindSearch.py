@@ -1,20 +1,20 @@
+# INFORMATION ------------------------------------------------------------------------------------------------------- #
+
+# Author:  Jiawei Luo, Yifan Deng, Xinzhe Wang
+# Date:    05/25/2021
+# Purpose: Implementing Advanced Heuristic Search in agent of the Sequence Game
+# Others: An agent based on uniform search. First, to find if we choose action A,
+#         how much will it cost. "Cost" here means that the distance between the 
+#         position we just take and the same color chip. And the search is not 
+#         exploring the whole board, but only the four directions of current position.
+#         Once we got the closest position, we use the same method to find the best
+#         draft card and then choose this action.
+
+# IMPORTS ------------------------------------------------------------------------------------------------------------#
 from template import Agent
 import heapq
 import math
 from Sequence.sequence_model import *
-
-"""
-Authors: Group-28 Unimelb comp90054 2021s1
-
-An agent based on uniform search. First, to find if we choose action A,
-how much will it cost. "Cost" here means that the distance between the 
-position we just take and the same color chip. And the search is not 
-exploring the whole board, but only the four directions of current position.
-
-Once we got the closest position, we use the same method to find the best
-draft card and then choose this action.
-"""
-
 
 class myAgent(Agent):
     def __init__(self, _id):
@@ -23,14 +23,10 @@ class myAgent(Agent):
     def SelectAction(self, actions, game_state):
         # usc
         action = self.uscSelectionH(actions, game_state)
-
-        # minimax
-        # action = self.minimaxSelection(actions, game_state, True, 2)
         return action
 
     # UCS
     def uscSelectionH(self, actions, game_state):
-
         # avoid null action return
         nextAction = random.choice(actions)
         minScore = math.inf
@@ -73,7 +69,6 @@ class myAgent(Agent):
 
     #  (for draft card) mini distance between one of the possible action and the goal
     def uscPosH(self, draftCard, game_state):
-
         # if it's jack, we take it immediately
         if draftCard == "js" or draftCard == "jh" or draftCard == "jc" or draftCard == "jd":
             return -math.inf
@@ -202,7 +197,6 @@ class myAgent(Agent):
                 if pos in point1s:
                     totalCost = cost
                     break
-
                 # if it's the first time to explore, then 8 positions around it
                 # should be expanded
                 if expandTime == 1:
@@ -210,7 +204,6 @@ class myAgent(Agent):
                 else:
                     # if not, only need to expand in one direction
                     succNodes = self.expandH(parent, pos, game_state, False)
-
                 if succNodes == []:
                     return math.inf
                 for succNode in succNodes:
@@ -281,13 +274,10 @@ class myAgent(Agent):
                     children.append((point, (x + dx, y + dy), NORMAL))
         return children
 
-####################################################################################################
+# Helper Class ----------------------------------------------------------------------------#
 class PriorityQueue:
     """
-      Implements a priority queue data structure. Each inserted item
-      has a priority associated with it and the client is usually interested
-      in quick retrieval of the lowest-priority item in the queue. This
-      data structure allows O(1) access to the lowest-priority item.
+      Implements a priority queue data structure.
     """
 
     def __init__(self):
