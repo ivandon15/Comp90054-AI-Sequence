@@ -1,13 +1,17 @@
+# INFORMATION ------------------------------------------------------------------------------------------------------- #
+
+# Author:  Jiawei Luo, Yifan Deng, Xinzhe Wang
+# Date:    05/25/2021
+# Purpose: Implementing Blind Search in agent of the Sequence Game
+# Others: This file contains one uniform cost search(expolring whole board), one ucs(exploring in four directions), 
+#         one normal minimax(not working at all but can be report materials:))
+
+# IMPORTS ------------------------------------------------------------------------------------------------------------#
 from template import Agent
 import heapq, random
 import math
 from Sequence.sequence_model import *
 
-"""
-Blind Search using UCS(exploring in four directions)
-Contains one uniform cost search(expolring whole board), one ucs(exploring in four directions),
-one normal minimax(not working at all but can be report materials:))
-"""
 class myAgent(Agent):
     def __init__(self, _id):
         super().__init__(_id)
@@ -24,7 +28,7 @@ class myAgent(Agent):
         # action = self.minimaxSelection(actions, game_state, True, 2)
         return action
 
-    ######################################### UCS Advanced ##########################################
+    # UCS Advanced ------------------------------------------------------------------------------------------------#
     def uscSelectionA(self, actions, game_state):
         nextAction = random.choice(actions)
 
@@ -42,10 +46,8 @@ class myAgent(Agent):
         if action["type"] == "trade":
             return math.inf
         point = action["coords"]
-
         point1s = []
         minDistance = math.inf
-
         awesomeSet = set()
         awesomeSet.update(((4, 4), (4, 5), (5, 4), (5, 5), (0, 0), (0, 9), (9, 9), (9, 0)))
 
@@ -77,7 +79,6 @@ class myAgent(Agent):
 
     # the minimum distance between point and one of the point in point1s
     def chipDistanceA(self, point, point1s):
-
         myqueue = PriorityQueue()
         startCost = 0
         parentPoint = (-1, -1)
@@ -110,7 +111,6 @@ class myAgent(Agent):
                     succNodes = self.expandA(parent, pos, True)
                 else:
                     succNodes = self.expandA(parent, pos, False)
-
                 if succNodes == []:
                     return math.inf
                 for succNode in succNodes:
@@ -145,7 +145,7 @@ class myAgent(Agent):
                 children.append((point, (x + dx, y + dy), 1))
         return children
     
-    ######################################### USC ###################################################
+    # USC ------------------------------------------------------------------------------------------------#
 
     def uscSelection(self, actions, game_state):
         nextAction = random.choice(actions)
@@ -200,7 +200,6 @@ class myAgent(Agent):
 
         while myqueue:
             node = myqueue.pop()
-
             pos, cost = node
             # take out the best cost for current pos
             best = best_g.setdefault(pos, cost)
@@ -237,11 +236,7 @@ class myAgent(Agent):
                         
         return children
     
-    ####################################################################################################
-
-    
-    
-    ########################################## minimax #################################################
+    # minimax ------------------------------------------------------------------------------------------------#
     def minimaxSelection(self, actions, game_state, is_max, depth=4):
         # a Board with weighted value
         weightBoard = self.weightedBoard()
@@ -367,7 +362,7 @@ class myAgent(Agent):
 
         return weightBoard
 
-####################################################################################################
+# Helper Class ------------------------------------------------------------------------------------------------#
 class PriorityQueue:
     """
       Lowest cost priority queue data structure.
