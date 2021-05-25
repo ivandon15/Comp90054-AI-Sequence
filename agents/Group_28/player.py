@@ -1,12 +1,23 @@
+# INFORMATION ------------------------------------------------------------------------------------------------------- #
+
+# Author:  Jiawei Luo, Yifan Deng, Xinzhe Wang
+# Date:    05/25/2021
+# Purpose: Implementing Advanced Heuristic Search in agent of the Sequence Game
+# Others: An agent based on uniform search. First, to find if we choose action A,
+#         how much will it cost. "Cost" here means that the distance between the 
+#         position we just take and the same color chip. And the search is not 
+#         exploring the whole board, but only the four directions of current position.
+#         Once we got the closest position, we use the same method to find the best
+#         draft card and then choose this action.
+
+# IMPORTS ------------------------------------------------------------------------------------------------------------#
 from numpy import sign
 from template import Agent
 import heapq
 from Sequence.sequence_model import *
 import math
-"""
-Authors: Group-28 Unimelb comp90054 2021s1
 
-"""
+# CONSTANTS -----------------------------------------------------------------------------------------------------------#
 EPSILON = 0.05
 GAMMA = 0.9
 ALPHA = 0.001
@@ -15,15 +26,11 @@ class myAgent(Agent):
     def __init__(self, _id):
         super().__init__(_id)
 
-        self.draft_weight = {'draft-take-two-eyed': 100, 'draft-take-one-eyed': 70, 'draft-seq-num': 60,
-                             'draft-chip-num': 5.0, 'draft-take-hearts-card': 80}
-        self.remove_weight = {'remove-hearts': 20, 'remove-seq-num': 30, 'remove-chip-num': 1, 'remove-opp-chip-num': 2}
-        self.play_weight = {'play-hearts': 20, 'play-seq-num': 30, 'play-chip-num': 2, 'play-opp-seq-num': 30,
-                            'play-opp-chip-num': 1}
-
-        # self.draft_weight = {'draft-take-two-eyed': 99.42826467142166, 'draft-take-one-eyed': 71.7408903848989, 'draft-seq-num': 54.75069614520659, 'draft-chip-num': 10.527065357671711,'draft-take-hearts-card': 76.82415255468464}
-        # self.remove_weight ={'remove-hearts': 18.247758610865123, 'remove-seq-num': 39.599471346104696, 'remove-chip-num': -1.263087726239778, 'remove-opp-chip-num': -0.0017162674107276121}
-        # self.play_weight = {'play-hearts': 6.486569715214683, 'play-seq-num': 55.15976428905351, 'play-chip-num': 12.61276809162688, 'play-opp-seq-num': 29.7678004230904658,'play-opp-chip-num':5.861925339174945}
+        self.draft_weight = {'draft-take-two-eyed': 99.42826467142166, 'draft-take-one-eyed': 71.7408903848989, 'draft-seq-num': 60.75069614520659,
+                             'draft-chip-num': 5.527065357671711, 'draft-take-hearts-card': 86.82415255468464}
+        self.remove_weight = {'remove-hearts': 19.247758610865123, 'remove-seq-num': 29.899471346104696, 'remove-chip-num': 1.26308772623977, 'remove-opp-chip-num': 2.0017162674107276121}
+        self.play_weight = {'play-hearts': 26.486569715214683, 'play-seq-num': 32.15976428905351, 'play-chip-num': 2.61276809162688, 'play-opp-seq-num': 29.7678004230904658,
+                            'play-opp-chip-num': 1.861925339174945}
 
     def SelectAction(self, actions, game_state):
         whole_state = (game_state, actions)
@@ -219,7 +226,6 @@ class myAgent(Agent):
             if chips[x][y] == opp_color:
                 opp_heart_num += 1
 
-
         # when there are three opponents, we need to remove the hearts,
         if position in awesomeList:
                 feature["remove-hearts"] = 1.0
@@ -237,9 +243,6 @@ class myAgent(Agent):
         # chips[x][y] = EMPTY
         temp, feature["remove-opp-chip-num"] = seq_info
         print("remove-opp-chip-num",feature["remove-opp-chip-num"])
-        # feature["remove-closest-friend-distance"] = max(self.uscActionsA(position, game_state, True),
-        #                                                 feature["remove-closest-friend-distance"])
-        # feature["remove-opp-num"] = self.oppAlmostSeq(position, chips, opp_color)
         return feature
 
     def playFeature(self, position, chips, game_state):
@@ -276,9 +279,6 @@ class myAgent(Agent):
         if game_state.agents[self.id].score+game_state.agents[(self.id+2)%4].score+\
                 feature["play-seq-num"]>=2:
             feature["play-opp-seq-num"] *=2
-        # feature["play-closest-friend-distance"] = max(self.uscActionsA(position, game_state, True),
-        #                                               feature["play-closest-friend-distance"])
-        # print("play-closest-friend:",self.uscActionsA(position, game_state, True))
         chips[x][y] = opp_color
         seq_info = self.checkSeq(chips, opp_plr_state, (x, y))
         chips[x][y] = EMPTY
@@ -291,7 +291,6 @@ class myAgent(Agent):
         print("play-opp-seq-num",feature["play-opp-seq-num"])
         return feature
 
-    ######################################################33
     def checkSeq(self, chips, plr_state, last_coords):
         """
         Copy from sequence_model for check if there ganna be a sequence
@@ -420,7 +419,6 @@ class myAgent(Agent):
                 if pos in point1s:
                     totalCost = cost
                     break
-
                 # if it's the first time to explore, then 8 positions around it
                 # should be expanded
                 if expandTime == 1:
@@ -449,7 +447,6 @@ class myAgent(Agent):
         chips = game_state.board.chips
         opp_color = game_state.agents[self.id].opp_colour
         opp_seq_color = game_state.agents[self.id].opp_seq_colour
-
         # point's parent
         x0, y0 = parentPoint
         # current node which is going to be expanded
@@ -500,7 +497,7 @@ class myAgent(Agent):
         return children
 
 
-####################################################################################################
+# Helper Class -------------------------------------------------------------------------------#
 class PriorityQueue:
     """
       Lowest cost priority queue data structure.
