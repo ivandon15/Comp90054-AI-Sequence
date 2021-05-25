@@ -15,20 +15,21 @@ class myAgent(Agent):
     def __init__(self, _id):
         super().__init__(_id)
 
-        self.draft_weight = {'draft-take-two-eyed': 99.42826467142166, 'draft-take-one-eyed': 71.7408903848989, 'draft-seq-num': 54.75069614520659, 'draft-chip-num': 10.527065357671711,'draft-take-hearts-card': 76.82415255468464}
-        self.remove_weight ={'remove-hearts': 18.247758610865123, 'remove-seq-num': 39.599471346104696, 'remove-chip-num': -1.263087726239778, 'remove-opp-chip-num': -0.0017162674107276121}
-        self.play_weight = {'play-hearts': 6.486569715214683, 'play-seq-num': 55.15976428905351, 'play-chip-num': 12.61276809162688, 'play-opp-seq-num': 29.7678004230904658,'play-opp-chip-num':5.861925339174945}
+        self.draft_weight = {'draft-take-two-eyed': 100, 'draft-take-one-eyed': 70, 'draft-seq-num': 60,
+                             'draft-chip-num': 5.0, 'draft-take-hearts-card': 80}
+        self.remove_weight = {'remove-hearts': 20, 'remove-seq-num': 30, 'remove-chip-num': 1, 'remove-opp-chip-num': 2}
+        self.play_weight = {'play-hearts': 20, 'play-seq-num': 30, 'play-chip-num': 2, 'play-opp-seq-num': 30,
+                            'play-opp-chip-num': 1}
 
-        # self.draft_weight = AdvancedDict()
-        # self.remove_weight = AdvancedDict()
-        # self.play_weight = AdvancedDict()
+        # self.draft_weight = {'draft-take-two-eyed': 99.42826467142166, 'draft-take-one-eyed': 71.7408903848989, 'draft-seq-num': 54.75069614520659, 'draft-chip-num': 10.527065357671711,'draft-take-hearts-card': 76.82415255468464}
+        # self.remove_weight ={'remove-hearts': 18.247758610865123, 'remove-seq-num': 39.599471346104696, 'remove-chip-num': -1.263087726239778, 'remove-opp-chip-num': -0.0017162674107276121}
+        # self.play_weight = {'play-hearts': 6.486569715214683, 'play-seq-num': 55.15976428905351, 'play-chip-num': 12.61276809162688, 'play-opp-seq-num': 29.7678004230904658,'play-opp-chip-num':5.861925339174945}
 
     def SelectAction(self, actions, game_state):
         whole_state = (game_state, actions)
         action = random.choice(actions)
         if random.random() > EPSILON:
             action = self.getPolicy(whole_state)
-        self.doAction(whole_state, action)
         return action
 
     def getPolicy(self, whole_state):
@@ -128,57 +129,6 @@ class myAgent(Agent):
 
         return maxValue
 
-    def observationFunction(self, whole_state):
-        # print("laststate is none?:",self.lastState is None)
-        if not (self.lastState is None):
-            game_state = whole_state[0]
-            last_game_state = self.lastState[0]
-            # not only care about winning but also need to penalize if put
-            # wrong place and let the next agent win
-            reward = game_state.agents[self.id].score - \
-                     last_game_state.agents[self.id].score + \
-                     game_state.agents[(self.id + 2) % 4].score - \
-                     last_game_state.agents[(self.id + 2) % 4].score
-            penalize = game_state.agents[(self.id + 1) % 4].score - \
-                       last_game_state.agents[(self.id + 1) % 4].score+ \
-                       game_state.agents[(self.id + 3) % 4].score - \
-                       last_game_state.agents[(self.id + 3) % 4].score
-            self.obeserveTransition(self.lastState, self.lastAction, whole_state, reward - penalize)
-        return whole_state
-
-    def obeserveTransition(self, lastState, last_action, current_state, deltaReward):
-        # make reward become larger
-        self.updateQValue(lastState, current_state, last_action, deltaReward * 100)
-
-    def updateQValue(self, lastState, current_state, last_action, reward):
-        # update three q values respectively
-        draft_feature, remove_feature, play_feature = self.getFeatures(lastState, last_action)
-        for key in draft_feature.keys():
-            self.draft_weight[key] += ALPHA * (reward + GAMMA * self.getValue("draft", current_state) -
-                                               self.getQValue("draft", self.draft_weight, lastState, last_action)) \
-                                      * draft_feature[key]
-        for key in remove_feature.keys():
-            print("updateQvalue-remove")
-            self.remove_weight[key] += ALPHA * (reward + GAMMA * self.getValue("remove", current_state) -
-                                                self.getQValue("remove", self.remove_weight, lastState, last_action)) \
-                                       * remove_feature[key]
-        for key in play_feature.keys():
-            print("play feature:", key)
-            self.play_weight[key] += ALPHA * (reward + GAMMA * self.getValue("play`", current_state) -
-                                              self.getQValue("play", self.play_weight, lastState, last_action)) \
-                                     * play_feature[key]
-
-#         print("draft weight:", self.draft_weight)
-#         print("remove weight:", self.remove_weight)
-#         print("play weight:", self.play_weight)
-#         f = open("QlearnWeight.txt", 'w')
-#         f.write(str(self.draft_weight))
-#         f.write("\n")
-#         f.write(str(self.remove_weight))
-#         f.write("\n")
-#         f.write(str(self.play_weight))
-#         f.write("\n")
-
     def getQValue(self, feature_name, weights, whole_state, action):
         print("In get Qvalue and feature name is",feature_name)
         qValue = 0.0
@@ -247,7 +197,8 @@ class myAgent(Agent):
                 print("calling checkSeq success and info is:",seq_info)
                 chips[x][y] = EMPTY
                 feature["draft-seq-num"],feature["draft-chip-num"] = seq_info
-                
+                # feature["draft-closest-friend-distance"] = max(self.uscActionsA((x,y), game_state, True)* 10.0,
+                #                                                feature["draft-closest-friend-distance"])
         return feature
 
     def removeFeature(self, position, chips, game_state):
@@ -273,7 +224,7 @@ class myAgent(Agent):
         if position in awesomeList:
                 feature["remove-hearts"] = 1.0
                 if opp_heart_num == 3:
-                    feature["remove-hearts"] = 10
+                    feature["remove-hearts"] = 3
         # if not heart, we should remove the pos that if we put a chip there, we can
         # make a sequence
         x, y = position
@@ -286,7 +237,9 @@ class myAgent(Agent):
         # chips[x][y] = EMPTY
         temp, feature["remove-opp-chip-num"] = seq_info
         print("remove-opp-chip-num",feature["remove-opp-chip-num"])
-        
+        # feature["remove-closest-friend-distance"] = max(self.uscActionsA(position, game_state, True),
+        #                                                 feature["remove-closest-friend-distance"])
+        # feature["remove-opp-num"] = self.oppAlmostSeq(position, chips, opp_color)
         return feature
 
     def playFeature(self, position, chips, game_state):
@@ -304,17 +257,28 @@ class myAgent(Agent):
         print("opp_plr:",opp_plr_state)
         awesomeList = [(4, 4), (4, 5), (5, 4), (5, 5)]
 
+        heart_num = 0
+        for x, y in awesomeList:
+            if chips[x][y] == opp_color:
+                heart_num += 1
+
         # if we are placing on the hearts, good move!!
         if position in awesomeList:
             feature["play-hearts"] = 1.0
-            
+            if heart_num == 3:
+                feature["play-hearts"] = 3
         # if not heart, we should place the pos that if we put a chip there, we can
         # make a sequence
         x, y = position
         chips[x][y] = color
         seq_info = self.checkSeq(chips, plr_state, (x, y))
         feature["play-seq-num"],feature["play-chip-num"] = seq_info
-        
+        if game_state.agents[self.id].score+game_state.agents[(self.id+2)%4].score+\
+                feature["play-seq-num"]>=2:
+            feature["play-opp-seq-num"] *=2
+        # feature["play-closest-friend-distance"] = max(self.uscActionsA(position, game_state, True),
+        #                                               feature["play-closest-friend-distance"])
+        # print("play-closest-friend:",self.uscActionsA(position, game_state, True))
         chips[x][y] = opp_color
         seq_info = self.checkSeq(chips, opp_plr_state, (x, y))
         chips[x][y] = EMPTY
@@ -326,36 +290,6 @@ class myAgent(Agent):
 
         print("play-opp-seq-num",feature["play-opp-seq-num"])
         return feature
-
-    ###learningAgent
-
-    # TODO: start and end suppose to be present the average reward only
-    def startEpoch(self):
-        # starting a new round
-        self.lastState = None
-        self.lastAction = None
-
-    def doAction(self, whole_state, action):
-        """
-            record the state and the action
-        """
-        self.lastState = whole_state
-        self.lastAction = action
-
-    ## for sequence
-
-    def register(self, whole_state):
-        self.startEpoch()
-
-    def final(self, whole_state):
-        game_state = whole_state[0]
-        last_game_state = self.lastState[0]
-        deltaReward = game_state.agents[self.id].score - \
-                      last_game_state.agents[self.id].score+ \
-                      game_state.agents[(self.id+1)%4].score - \
-                      last_game_state.agents[(self.id+1)%4].score
-        self.obeserveTransition(self.lastState, self.lastAction, whole_state, deltaReward)
-        # self.endEpoch()
 
     ######################################################33
     def checkSeq(self, chips, plr_state, last_coords):
