@@ -2,13 +2,7 @@
 
 # Author:  Jiawei Luo, Yifan Deng, Xinzhe Wang
 # Date:    05/25/2021
-# Purpose: Implementing Advanced Heuristic Search in agent of the Sequence Game
-# Others: An agent based on uniform search. First, to find if we choose action A,
-#         how much will it cost. "Cost" here means that the distance between the 
-#         position we just take and the same color chip. And the search is not 
-#         exploring the whole board, but only the four directions of current position.
-#         Once we got the closest position, we use the same method to find the best
-#         draft card and then choose this action.
+# Purpose: Implementing Reinforcement Learning (approximate Q-Function) in agent of the Sequence Game
 
 # IMPORTS ------------------------------------------------------------------------------------------------------------#
 from numpy import sign
