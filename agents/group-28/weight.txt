@@ -1,0 +1,310 @@
+draft weight:{'draft-take-two-eyed': 10.439373541635955, 'draft-take-one-eyed': 11.950836193890709, 'draft-seq-num': 24.875167212499523, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 7.272631738007498, 'remove-seq-num': 1.7797035098307943, 'remove-closest-friend-distance': 10.0, 'remove-opp-num': -3.493943405838242}
+play weight:{'play-hearts': 35.29446665589984, 'play-seq-num': 220.83338872532985, 'play-closest-friend-distance': 10.0, 'play-opp-seq-num': 1.0}
+Over 200 games:
+Agent Red_RandomAgent earned +1.71 points in average and won 150 games, winning rate 75.00%;
+Agent Blue_RandomAgent earned +0.76 points in average and won 49 games, winning rate 24.50%;
+And 1 games tied
+
+draft weight:{'draft-take-two-eyed': 10.875378632278222, 'draft-take-one-eyed': 12.74321301972401, 'draft-seq-num': 24.20425109822888, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 10.59308742468389, 'remove-seq-num': 2.8356715008114985, 'remove-closest-friend-distance': 10.0, 'remove-opp-num': -4.577638959838475}
+play weight:{'play-hearts': 29.24570956976959, 'play-seq-num': 184.65202930208497, 'play-closest-friend-distance': 10.0, 'play-opp-seq-num': 1.0}
+
+Over 200 games:
+Agent Red_RandomAgent earned +1.74 points in average and won 148 games, winning rate 74.00%;
+Agent Blue_RandomAgent earned +0.74 points in average and won 49 games, winning rate 24.50%;
+And 3 games tied.
+
+draft weight:{'draft-take-two-eyed': 8.841219488016309, 'draft-take-one-eyed': 8.283293289548881, 'draft-seq-num': 25.575260472788845, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 15.318036473787277, 'remove-seq-num': 5.252750867527717, 'remove-closest-friend-distance': 10.0, 'remove-opp-num': -5.154121188166144}
+play weight:{'play-hearts': 8.965065452820829, 'play-seq-num': 133.84019335336262, 'play-closest-friend-distance': 10.0, 'play-opp-seq-num': 1.0}
+---random *20
+
+draft weight:{'draft-take-two-eyed': 8.927793863856591, 'draft-take-one-eyed': 9.131106144507934, 'draft-seq-num': 23.43737267097714, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 15.627578675837821, 'remove-seq-num': 5.621264148043232, 'remove-closest-friend-distance': 10.0, 'remove-opp-num': -5.517800798048602}
+play weight:{'play-hearts': 7.875264103751633, 'play-seq-num': 129.39158806751783, 'play-closest-friend-distance': 10.0, 'play-opp-seq-num': 1.0}
+
+Over 400 games:
+Agent Red_RandomAgent earned +1.03 points in average and won 192 games, winning rate 48.00%;
+Agent Blue_RandomAgent earned +0.85 points in average and won 144 games, winning rate 36.00%;
+And 64 games tied.
+
+draft weight:{'draft-take-two-eyed': 23.080334905511922, 'draft-take-one-eyed': 17.32503017037412, 'draft-seq-num': 29.759011373096293, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 28.722397682753684, 'remove-seq-num': 8.432153019128021, 'remove-closest-friend-distance': 10.0, 'remove-opp-num': -10.448562088783106}
+play weight:{'play-hearts': 9.93511570407673, 'play-seq-num': 118.46960032598996, 'play-closest-friend-distance': 10.0, 'play-opp-seq-num': 1.0}
+
+Over 400 games:
+Agent Red_RandomAgent earned +1.12 points in average and won 210 games, winning rate 52.50%;
+Agent Blue_RandomAgent earned +0.84 points in average and won 131 games, winning rate 32.75%;
+And 59 games tied.
+
+draft weight:{'draft-take-two-eyed': 63.56053015482396, 'draft-take-one-eyed': 40.384786232034465, 'draft-seq-num': 37.8263223777431, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 52.800834225568764, 'remove-seq-num': 12.111143441600266, 'remove-closest-friend-distance': 10.0, 'remove-opp-num': -18.77317517929858}
+play weight:{'play-hearts': 17.751614413924962, 'play-seq-num': 91.68291084545332, 'play-closest-friend-distance': 10.0, 'play-opp-seq-num': 1.0}
+Over 400 games:
+Agent Red_RandomAgent earned +0.99 points in average and won 185 games, winning rate 46.25%;
+Agent Blue_RandomAgent earned +0.91 points in average and won 147 games, winning rate 36.75%;
+And 68 games tied.
+
+self.draft_weight = {"draft-take-two-eyed":200,"draft-take-one-eyed":100,"draft-seq-num":45,"draft-closest-friend-distance":5}
+self.remove_weight = {"remove-hearts":100,"remove-seq-num":20,"remove-closest-friend-distance":10,"remove-opp-num":2}
+self.play_weight = {"play-hearts":100,"play-seq-num":50,"play-closest-friend-distance":10,"play-opp-seq-num":1}
+
+------------------ have some prob
+draft weight:{'draft-take-two-eyed': 110.44491473028395, 'draft-take-one-eyed': 38.3706911532101, 'draft-seq-num': 74.21041321599179, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 100, 'remove-seq-num': 35.81028669192066, 'remove-closest-friend-distance': 5.0, 'remove-opp-num': -7.566035643485113}
+play weight:{'play-hearts': 88.2350139201785, 'play-seq-num': 107.72207475340757, 'play-closest-friend-distance': 30.0, 'play-opp-seq-num': 5.0}
+
+Over 100 games:
+Agent Red_RandomAgent earned +1.28 points in average and won 65 games, winning rate 65.00%;
+Agent Blue_RandomAgent earned +0.68 points in average and won 25 games, winning rate 25.00%;
+And 10 games tied.
+
+
+draft weight:{'draft-take-two-eyed': 147.32676399672647, 'draft-take-one-eyed': 44.240347198178526, 'draft-seq-num': 89.70591251776841, 'draft-closest-friend-distance': 5.0}
+remove weight:{'remove-hearts': 100, 'remove-seq-num': 40.66952636604679, 'remove-closest-friend-distance': 5.0, 'remove-opp-num': -6.3887785040079015}
+play weight:{'play-hearts': 131.29566374229384, 'play-seq-num': 103.00276779017895, 'play-closest-friend-distance': 30.0, 'play-opp-seq-num': 5.0}
+
+Over 100 games:
+Agent Red_RandomAgent earned +1.14 points in average and won 52 games, winning rate 52.00%;
+Agent Blue_RandomAgent earned +0.72 points in average and won 28 games, winning rate 28.00%;
+And 20 games tied.
+
+
+
+
+
+
+
+
+
+draft weight: {'draft-take-two-eyed': 79.02141240931414, 'draft-take-one-eyed': 45.949234849630855, 'draft-seq-num': 29.762844238159484, 'draft-closest-friend-distance': 40.202269376690886}
+remove weight: {'remove-hearts': 19.39271498012138, 'remove-seq-num': 41.35078783754536, 'remove-closest-friend-distance': -3.3701677870604434, 'remove-opp-num': 2.2931995429989938}
+play weight: {'play-hearts': 21.112987203195843, 'play-seq-num': 59.822933054038955, 'play-closest-friend-distance': 25.13613614261568, 'play-opp-seq-num': 5.0}
+Over 50 games:
+Agent Red_RandomAgent earned +0.84 points in average and won 13 games, winning rate 26.00%;
+Agent Blue_RandomAgent earned +1.98 points in average and won 36 games, winning rate 72.00%;
+And 1 games tied.
+
+draft weight: {'draft-take-two-eyed': 84.21445286066215, 'draft-take-one-eyed': 46.579103895969354, 'draft-seq-num': 30.00324253969087, 'draft-closest-friend-distance': 38.17079961385876}
+remove weight: {'remove-hearts': 20.440669059796157, 'remove-seq-num': 44.619622939720465, 'remove-closest-friend-distance': -1.2852326698111154, 'remove-opp-num': 2.8229276156369716}
+play weight: {'play-hearts': 25.584674278932923, 'play-seq-num': 56.353223700449554, 'play-closest-friend-distance': 24.21654707770873, 'play-opp-seq-num': 5.0}
+Over 50 games:
+Agent Red_RandomAgent earned +0.82 points in average and won 12 games, winning rate 24.00%;
+Agent Blue_RandomAgent earned +1.90 points in average and won 38 games, winning rate 76.00%;
+And 0 games tied.
+
+draft weight: {'draft-take-two-eyed': 89.05937490699783, 'draft-take-one-eyed': 46.128244340796094, 'draft-seq-num': 29.386108685379387, 'draft-closest-friend-distance': 31.147584609506804}
+remove weight: {'remove-hearts': 22.10461900855653, 'remove-seq-num': 45.87490585537737, 'remove-closest-friend-distance': 0.4903407857789208, 'remove-opp-num': 3.136259513040498}
+play weight: {'play-hearts': 29.153842590871662, 'play-seq-num': 47.569606352852226, 'play-closest-friend-distance': 19.594923571686152, 'play-opp-seq-num': 5.0}
+Over 50 games:
+Agent Red_RandomAgent earned +0.98 points in average and won 17 games, winning rate 34.00%;
+Agent Blue_RandomAgent earned +1.78 points in average and won 33 games, winning rate 66.00%;
+And 0 games tied.
+
+draft weight: {'draft-take-two-eyed': 94.22043606587609, 'draft-take-one-eyed': 47.27491232463302, 'draft-seq-num': 30.235577206905962, 'draft-closest-friend-distance': 19.951634772072616}
+remove weight: {'remove-hearts': 25.15827607127652, 'remove-seq-num': 48.38618128588979, 'remove-closest-friend-distance': 4.8139587811495, 'remove-opp-num': 4.256879136299708}
+play weight: {'play-hearts': 34.39196450876499, 'play-seq-num': 38.06172545977962, 'play-closest-friend-distance': 12.875540737445839, 'play-opp-seq-num': 5.0}
+Over 50 games:
+Agent Red_RandomAgent earned +0.96 points in average and won 18 games, winning rate 36.00%;
+Agent Blue_RandomAgent earned +1.82 points in average and won 32 games, winning rate 64.00%;
+And 0 games tied.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+        round 9
+        {'closest_friend': 121.2430854759247, 'opp_around': -24.73289009537035, 'closest_opp': 0.0, 'good_draft_card': 29.785852809751187, 'awesome': 82.92590441527297, 'good_remove': 0.047368025593812195}
+
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.63 points in average and won 21 games, winning rate 70.00%;
+        Agent Blue_RandomAgent earned +0.63 points in average and won 7 games, winning rate 23.33%;
+        And 2 games tied.
+
+        """
+        """
+        round 8
+        {'closest_friend': 115.97657894731543, 'opp_around': -23.070079852513864, 'closest_opp': 0.0, 'good_draft_card': 31.06706992323713, 'awesome': 81.69082130974417, 'good_remove': 0.03149921527905905}
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.47 points in average and won 21 games, winning rate 70.00%;
+        Agent Blue_RandomAgent earned +0.67 points in average and won 6 games, winning rate 20.00%;
+        And 3 games tied.
+        """
+        """
+        round 7
+        {'closest_friend': 105.19547751938124, 'opp_around': -19.712335328234513, 'closest_opp': 0.0, 'good_draft_card': 29.884745570979003, 'awesome': 70.18410410221054, 'good_remove': 0.03149921527905905}
+
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.40 points in average and won 18 games, winning rate 60.00%;
+        Agent Blue_RandomAgent earned +0.77 points in average and won 8 games, winning rate 26.67%;
+        And 4 games tied.
+        """
+        """
+        round 6
+        {'closest_friend': 100.3872128976915, 'opp_around': -19.548471546423567, 'closest_opp': 0.0, 'good_draft_card': 32.99816547513067, 'awesome': 63.82359671906414, 'good_remove': 0.04292125261942431}
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.27 points in average and won 17 games, winning rate 56.67%;
+        Agent Blue_RandomAgent earned +0.90 points in average and won 13 games, winning rate 43.33%;
+        And 0 games tied.
+        """
+        """
+        round 5
+        {'closest_friend': 100.89953948568814, 'opp_around': -19.473826946218153, 'closest_opp': 0.0, 'good_draft_card': 35.33499927352814, 'awesome': 63.35444811159102, 'good_remove': 0.012583946733080432}
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.20 points in average and won 13 games, winning rate 43.33%;
+        Agent Blue_RandomAgent earned +0.83 points in average and won 9 games, winning rate 30.00%;
+        And 8 games tied.
+        """
+        """
+        {'closest_friend': 95.47522982348154, 'opp_around': -18.623945772580928, 'closest_opp': 0.0, 'good_draft_card': 34.50186731281051, 'awesome': 60.09872827828066, 'good_remove': -0.010932524314565824}
+        round 4:
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.20 points in average and won 14 games, winning rate 46.67%;
+        Agent Blue_RandomAgent earned +0.93 points in average and won 10 games, winning rate 33.33%;
+        And 6 games tied.
+        """
+        """
+        round 3:
+        {'closest_friend': 83.05111686474106, 'opp_around': -14.757908001769353, 'closest_opp': 0.0, 'good_draft_card': 25.256643937195104, 'awesome': 51.79819273505341, 'good_remove': 0.0004545806440299661}
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.53 points in average and won 20 games, winning rate 66.67%;
+        Agent Blue_RandomAgent earned +0.70 points in average and won 7 games, winning rate 23.33%;
+        And 3 games tied.
+        """
+        """
+        round2
+        {'closest_friend': 74.38868529919452, 'opp_around': -11.527370840547233, 'closest_opp': 0.0, 'good_draft_card': 25.780991956314235, 'awesome': 46.11897507046514, 'good_remove': 0.017097558684724457}
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.50 points in average and won 18 games, winning rate 60.00%;
+        Agent Blue_RandomAgent earned +0.73 points in average and won 7 games, winning rate 23.33%;
+        And 5 games tied.
+        """
+        """
+        {'closest_friend': 67.15648188849491, 'opp_around': -9.946437915251995, 'closest_opp': 0.0, 'good_draft_card': 26.33042990432181, 'awesome': 45.98618295693279, 'good_remove': -0.0006475599356685348}
+        begin with blind
+        round 1
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.63 points in average and won 22 games, winning rate 73.33%;
+        Agent Blue_RandomAgent earned +0.60 points in average and won 6 games, winning rate 20.00%;
+        And 2 games tied.
+        """
+        """
+        round 4: 100%
+        {'closest_friend': 39.2577565773042, 'opp_around': -5.768776310705689, 'closest_opp': 0.0, 'good_draft_card': 11.787788176138474, 'awesome': 23.19030439808486, 'good_remove': -0.0006475599356685348}
+        Over 30 games:
+        Agent Red_RandomAgent earned +2.00 points in average and won 30 games, winning rate 100.00%;
+        Agent Blue_RandomAgent earned +0.00 points in average and won 0 games, winning rate 0.00%;
+        And 0 games tied.
+        """
+        # {'closest_friend': 15.135273903679446, 'opp_around': -3.479722669060696, 'closest_opp': 0.0, 'good_draft_card': -0.3977005873266078, 'awesome': -0.003921141197040318, 'good_remove': -0.0006475599356685348}
+        """
+        round 3:
+        Over 30 games:
+        Agent Red_RandomAgent earned +1.33 points in average and won 17 games, winning rate 56.67%;
+        Agent Blue_RandomAgent earned +0.43 points in average and won 5 games, winning rate 16.67%;
+        And 8 games tied.
+        """
+        #{'closest_friend': 4.858121497365091, 'opp_around': -1.0245135570277977, 'closest_opp': 0.0, 'good_draft_card': -0.18894115514199417, 'awesome': -0.002176969258034337, 'good_remove': -0.0006475599356685348}
+        """--- second 30:
+        # Agent Red_RandomAgent earned +0.80 points in average and won 14 games, winning rate 46.67%;
+        # Agent Blue_RandomAgent earned +0.53 points in average and won 4 games, winning rate 13.33%;
+        # And 12 games tied.
+        """
+        #self.weights = {'closest_friend': 62.318342750996045, 'opp_around': -13.704590401936946, 'closest_opp': 0.0, 'good_draft_card': 15.016587276516145, 'good_remove': -0.005126268011963015, 'awesome': 29.650970893995307}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#{'closest_friend': 53.44801783073936, 'opp_around': -10.886134387405573, 'closest_opp': 0.0, 'good_draft_card': 12.039631830044614, 'good_remove': -0.005126268011963015, 'awesome': 22.136138234520438}
+
+        #{'closest_friend': 45.95462266802692, 'opp_around': -9.814902813812653, 'closest_opp': 0.0, 'good_draft_card': 7.499700209418307, 'good_remove': -0.005126268011963015, 'awesome': 20.583438387783318}
+
+        #{'closest_friend': 40.49646655880165, 'opp_around': -8.595549754945097, 'closest_opp': 0.0, 'good_draft_card': 8.241973659113038, 'good_remove': -0.005126268011963015, 'awesome': 18.012644457795204}
+
+        # {'closest_friend': 31.45722988293955, 'opp_around': -6.206773490892623, 'closest_opp': 0.0, 'good_draft_card': 5.859706456418655, 'good_remove': 0, 'awesome': 12.553781068675313}
+        #{'closest_friend': 25.176671932698465, 'opp_around': -5.360301581566447, 'closest_opp': 0.0, 'good_draft_card': 3.9592651924241054, 'good_remove': 0, 'awesome': 9.787790681877862}
+        # 100% beat random
+        # {'closest_friend': 14.065297688068709, 'opp_around': -4.361733461673175, 'closest_opp': 0.0, 'good_draft_card': 0.20671554408221, 'good_remove': 0, 'awesome': 0.9541131384746282}
+        # {'closest_friend': 10.28606941258968, 'opp_around': -2.8665685343408707, 'closest_opp': 0.0, 'good_draft_card': -0.09915309894800889, 'good_remove': 0, 'awesome': 0.9784130458874295}
+        #{'closest_friend': 5.929767634922621, 'opp_around': -1.3944804282488812, 'closest_opp': 0.0, 'good_draft_card': -0.00346722124383004, 'good_remove': 0, 'awesome': -0.003159544040539621}
+        ###------------------begin again
+        #self.weights =  {'closest_friend': 39.66657116912565, 'good_remove':1.0,'opp_around': -8.836282690885023, 'closest_opp': 0.0, 'good_draft_card': 7.826815034969362, 'awesome': 10.768490090806702}
+
+        # TODO: add good remove
+        # {'closest_friend': 44.24899942882807, 'good_remove': 0.964778288284613, 'opp_around': -8.923945880862226, 'closest_opp': 0.0, 'good_draft_card': 6.430974622474275, 'awesome': 15.049359356035954}
+
+        # TODO: below 2 played with ucs advanced
+        #{'closest_friend': 29.908258512278202, 'opp_around': -7.201827442227883, 'closest_opp': 0.0, 'good_draft_card': 4.442803618732328, 'awesome': 12.110631339770196}
+        #{'closest_friend': 28.706451407687442, 'opp_around': -6.783586574234939, 'closest_opp': 0.0, 'good_draft_card': 4.17458483577438, 'awesome': 12.673069068789665}
+
+        #{'closest_friend': 24.70857576852074, 'opp_around': -5.906427784592272, 'closest_opp': 0.0, 'good_draft_card': 3.695988315120236, 'awesome': 10.179973635790184}
+
+
+        # {'closest_friend': 16.808099226268805, 'opp_around': -3.798057060081065, 'closest_opp': 0.0, 'good_draft_card': 2.1494153510884226, 'awesome': 8.705151863171777}
+        #{'closest_friend': 7.497985001461043, 'opp_around': -2.0341448072639663, 'closest_opp': 0.0, 'good_draft_card': 0.8988153514211529, 'awesome': 6.328999912566342}
+        #{'closest_friend': 4.399767414413711, 'opp_around': -1.1818076920405858, 'closest_opp': 0.0, 'good_draft_card': 1.133969582917395, 'awesome': 3.4209059165228575}
+        # TODO: using hebe and add penalize above
+        #{'closest_friend': 2.5657395568537296, 'opp_around': -0.7678004230904658, 'closest_opp': 0.0, 'good_draft_card': 0.22973096404864093, 'awesome': 0.42825220878134257}
+
+        # TODO：jiawei2--v1
+        #{'closest_friend': 2.5657395568537296, 'opp_around': -0.7678004230904658, 'closest_opp': 0.0, 'good_draft_card': 0.22973096404864093, 'awesome': 0.42825220878134257}
+
+
+        # {'closest_friend': 2.281073328859071, 'opp_around': -0.7174124944401378, 'closest_opp': 0.0, 'good_draft_card': 0.2685713128236832, 'awesome': 0.4872588541043705}
+        #{'closest_friend': 2.5610647840953393, 'opp_around': -0.7832291470785435, 'closest_opp': 0.0, 'good_draft_card': 0.2531259264332001, 'awesome': 0.4833584762357128}
+        #{'closest_friend': 2.540214851443476, 'opp_around': -0.7725592566126082, 'closest_opp': 0.0, 'good_draft_card': 0.22839377484262513, 'awesome': 0.43517118286996626}
+        # TODO: This is best to compare jiawei2
+        #{'closest_friend': 2.639677748575601, 'opp_around': -0.8103158937467025, 'closest_opp': 0.0, 'good_draft_card': 0.22818394959225174, 'awesome': 0.3831954211834901}
+
+        # TODO： beat lls v1.0 below
+        #{'closest_friend': 2.5024187219327274, 'opp_around': -0.7992563964525156, 'closest_opp': 0.0, 'good_draft_card': 0.21387914274462327, 'awesome': 0.27777420714543205}
+        # {'closest_friend': 2.4727191403026336, 'opp_around': -0.7984794907912753, 'closest_opp': 0.0, 'good_draft_card': 0.2114780848766555, 'awesome': 0.25361202815776873}
+        # TODO： beat blind 100% below
+        #{'closest_friend': 2.3856577392689253, 'opp_around': -0.7798313270212719, 'closest_opp': 0.0,'good_draft_card': 0.19318733494449775, 'awesome': 0.24990545418123708}
+        #{'closest_friend': 2.346997849081414, 'opp_around': -0.8594441758240783, 'closest_opp': 0.0, 'good_draft_card': 0.1437786681422069, 'awesome': 0.08864022844421211}
+        # TODO: change negative to positive !!!then beat random below
+        #{'closest_friend': -2.346997849081414, 'opp_around': 0.8594441758240783, 'closest_opp': 0.0, 'good_draft_card': -0.1437786681422069, 'awesome': -0.08864022844421211}
+
+        #{'closest_friend': -1.7952775432850394, 'opp_around': 0.656956886134801, 'closest_opp': 0.0, 'good_draft_card': -0.05641946918940899, 'awesome': -0.08917856209160234}
+        #{'closest_friend': -1.0805626669971231, 'opp_around': 0.37410050657668353, 'closest_opp': 0.0, 'good_draft_card': -0.05761822246177673, 'awesome': -0.08951297913703973}
+
+        #{'closest_friend': -0.4022935002893882, 'opp_around': 0.15067585390727872, 'closest_opp': 0.0,'good_draft_card': 0.024299589500573437, 'awesome': -0.08968881735183527}
+
+        # something wrong, it should be the opposite
+        #self.weights={'closest_friend': -2.991022396978179, 'opp_around': 1.0540078947377638, 'good_draft_card': -0.2982159718102849, 'closest_opp': 0.0, 'awesome': -0.08093231741107484}
+        #{'closest_friend': -2.624422206603025, 'opp_around': 0.9147599888319051, 'good_draft_card': -0.22577303958893588, 'closest_opp': 0.0, 'awesome': -0.08275413702919236}
+        #{'closest_friend': -2.4368821933295957, 'opp_around': 0.853126850564172, 'good_draft_card': -0.22686478944536687, 'closest_opp': 0.0, 'awesome': -0.08318412740111882}
+
+        # worst
+        #{'closest_friend': -2.00910459941803, 'opp_around': 0.6990730669117393, 'good_draft_card': -0.14442099891648505, 'closest_opp': 0.0, 'awesome': -0.08318412740111882}
+
+        #{'closest_friend': -1.9894039553292093, 'opp_around': 0.6727600661486108, 'good_draft_card': -0.14442099891648505, 'closest_opp': 0.0, 'awesome': -0.08318412740111882}
+        #{'closest_friend': -1.6535399283174947, 'opp_around': 0.5622504686127989, 'good_draft_card': -0.14493202192488, 'closest_opp': 0.0, 'awesome': 0.00047760138663708435}
+        #{'closest_friend': -1.1079232179371132, 'opp_around': 0.38841794810269115, 'good_draft_card': -0.1468459760774681, 'closest_opp': 0.0, 'awesome': 7.064190916038203e-05}
+        #{'closest_friend': -0.8830437259007948, 'opp_around': 0.29519868551995154,'good_draft_card': -0.1482005735118902, 'closest_opp': 0.0, 'awesome': 0.0}
+        #self.weights = {'closest_friend': -0.5693926176798452, 'opp_around': 0.17339898585249236, 'good_draft_card': -0.14861324027408393, 'closest_opp': 0.0, 'awesome': 0.0}

@@ -1,0 +1,128 @@
+Following are the print info for loading:
+
+
+
+-------------------------------------
+
+Following are the print info from the game:
+
+hi --init
+{'play-hearts': 13.047141077842909, 'play-seq-num': 65.07906315738933, 'play-chip-num': 21.231143906361268, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 13.964047994530269}
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'ad' to place a marker on space (9, 1).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['7h', '4d', '5c', 'ad', '4c', 'ah'].
+
+--------------------------------------------------------------------
+playCard:  kh
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'kh' to place a marker on space (5, 6).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4d', 'js', '9c', '3d', '6h', '5c'].
+
+--------------------------------------------------------------------
+hi --init
+{'play-hearts': 13.047141077842909, 'play-seq-num': 65.07906315738933, 'play-chip-num': 21.231143906361268, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 13.964047994530269}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f4c724bb0a0>
+position is  [(0, 7), (7, 1)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f4c724bb880>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 2
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+Agent 2 Time Out, 1 out of 3.
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '2s' to place a marker on space (8, 6).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['4h', '3h', 'qs', '8c', '8d', '7s'].
+
+--------------------------------------------------------------------
+playCard:  3c
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '3c' to place a marker on space (3, 5).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['5s', '8d', '2d', 'qd', '9d', 'jh'].
+
+--------------------------------------------------------------------
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f4c724ab910>
+position is  [(1, 5), (4, 6)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f4c724ab940>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1

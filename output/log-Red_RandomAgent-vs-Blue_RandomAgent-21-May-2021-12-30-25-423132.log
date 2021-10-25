@@ -1,0 +1,50 @@
+Following are the print info for loading:
+
+
+
+-------------------------------------
+
+Following are the print info from the game:
+
+Beginning 1 episodes of Training
+Beginning 1 episodes of Training
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'kh' to place a marker on space (1, 6).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['6d', '8c', '3h', '2d', 'kc', '2h'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'qc' to place a marker on space (6, 0).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['kc', '5c', '6h', '3s', 'td', 'jd'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '2c' to place a marker on space (1, 4).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['js', 'ts', '9s', '8h', '9s', '8d'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '8d' to place a marker on space (3, 7).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['qd', '4d', '8s', '7s', '7h', 'ks'].
+
+--------------------------------------------------------------------

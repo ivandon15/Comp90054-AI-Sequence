@@ -1,0 +1,318 @@
+Following are the print info for loading:
+
+
+
+-------------------------------------
+
+Following are the print info from the game:
+
+hi --init
+{'play-hearts': 13.047141077842909, 'play-seq-num': 65.07906315738933, 'play-chip-num': 21.231143906361268, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 13.964047994530269}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cacca0>
+position is  [(7, 7), (9, 2)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281caccd0>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 0
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+Agent 0 Time Out, 1 out of 3.
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '6c' to place a marker on space (3, 2).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['2c', 'qc', 'th', '3d', '8c', 'jd'].
+
+--------------------------------------------------------------------
+playCard:  jd
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'jd' to place a marker on space (4, 4).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['3c', '8h', '9c', '2c', '7h', '7h'].
+
+--------------------------------------------------------------------
+hi --init
+{'play-hearts': 13.047141077842909, 'play-seq-num': 65.07906315738933, 'play-chip-num': 21.231143906361268, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 13.964047994530269}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cb24c0>
+position is  [(7, 7), (9, 2)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cb28b0>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 0
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+Agent 2 Time Out, 1 out of 3.
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played 'qs' to place a marker on space (4, 1).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['9h', 'qd', 'ah', '3s', '5d', 'as'].
+
+--------------------------------------------------------------------
+playCard:  td
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'td' to place a marker on space (5, 7).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['4s', 'qc', 'ad', '9s', '8s', '4h'].
+
+--------------------------------------------------------------------
+hi --init
+{'play-hearts': 13.047141077842909, 'play-seq-num': 65.07906315738933, 'play-chip-num': 21.231143906361268, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 13.964047994530269}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cb20a0>
+position is  [(7, 7), (9, 2)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cb2ca0>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 6
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+Agent 0 Time Out, 2 out of 3.
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '8c' to place a marker on space (3, 0).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['2c', 'qc', 'th', '3d', 'jd', 'kc'].
+
+--------------------------------------------------------------------
+playCard:  3c
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '3c' to place a marker on space (3, 5).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['8h', '9c', '2c', '7h', '7h', '4c'].
+
+--------------------------------------------------------------------
+hi --init
+{'play-hearts': 13.047141077842909, 'play-seq-num': 65.07906315738933, 'play-chip-num': 21.231143906361268, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 13.964047994530269}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281ca6730>
+position is  [(7, 7), (9, 2)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cb7400>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 0
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+Agent 2 Time Out, 2 out of 3.
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '5d' to place a marker on space (8, 9).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['9h', 'qd', 'ah', '3s', 'as', '6s'].
+
+--------------------------------------------------------------------
+playCard:  4h
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '4h' to place a marker on space (4, 5).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['4s', 'qc', 'ad', '9s', '8s', '4h'].
+
+--------------------------------------------------------------------
+hi --init
+{'play-hearts': 13.047141077842909, 'play-seq-num': 65.07906315738933, 'play-chip-num': 21.231143906361268, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 13.964047994530269}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cb7550>
+position is  [(7, 7), (9, 2)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fa281cb7040>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 6
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+Agent 0 Time Out, 3 out of 3.
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'jd' to place a marker on space (1, 7).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['2c', 'qc', 'th', '3d', 'kc', '4d'].
+
+--------------------------------------------------------------------
+GAME HAS ENDED
+--------------------------------------------------------------------
+Score for Agent 0: 0
+Score for Agent 1: 0
+Score for Agent 2: 0
+Score for Agent 3: 0

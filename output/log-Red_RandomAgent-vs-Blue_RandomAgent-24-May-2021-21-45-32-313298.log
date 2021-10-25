@@ -1,0 +1,582 @@
+Following are the print info for loading:
+
+
+
+-------------------------------------
+
+Following are the print info from the game:
+
+hi --init
+{'play-hearts': 17.273151825768633, 'play-seq-num': 88.12741879875925, 'play-chip-num': 44.250053282848356, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 18.184579752206286}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7484f0>
+position is  [(0, 6), (8, 1)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c748520>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7484f0>
+position is  [(0, 6), (8, 1)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c748520>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7484f0>
+position is  [(0, 6), (8, 1)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c748520>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+agent id 0
+playCard:  8h
+agent id 1
+hi --init
+{'play-hearts': 17.273151825768633, 'play-seq-num': 88.12741879875925, 'play-chip-num': 44.250053282848356, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 18.184579752206286}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c756ac0>
+position is  [(0, 6), (8, 1)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a11100>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c756ac0>
+position is  [(0, 6), (8, 1)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a11100>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c756ac0>
+position is  [(0, 6), (8, 1)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a11100>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+agent id 2
+playCard:  4h
+agent id 3
+hi --init
+{'play-hearts': 17.273151825768633, 'play-seq-num': 88.12741879875925, 'play-chip-num': 44.250053282848356, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 18.184579752206286}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a13340>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a13280>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a13340>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a13280>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a13340>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f5449a13280>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+agent id 0
+playCard:  jd
+agent id 1
+hi --init
+{'play-hearts': 17.273151825768633, 'play-seq-num': 88.12741879875925, 'play-chip-num': 44.250053282848356, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 18.184579752206286}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7566d0>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c75b580>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7566d0>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c75b580>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7566d0>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c75b580>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+agent id 2
+playCard:  3h
+agent id 3
+hi --init
+{'play-hearts': 17.273151825768633, 'play-seq-num': 88.12741879875925, 'play-chip-num': 44.250053282848356, 'play-opp-seq-num': 50.0, 'play-opp-chip-num': 18.184579752206286}
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7451f0>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7458b0>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7451f0>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7458b0>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7451f0>
+position is  [(6, 7), (9, 3)]
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+try to call checkSeq
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7f544c7458b0>
+opponent color in seq: r
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 5
+opponent color in seq: b
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+in the seq check and invalid seq
+checkseq-num 1
+play-opp-seq-num 0
+qValue 52.49115875539006
+[AttributeError]: SelectAction() is not defined!
+Selecting random action instead!
+agent id 0

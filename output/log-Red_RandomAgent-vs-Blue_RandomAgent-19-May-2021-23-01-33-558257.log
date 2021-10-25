@@ -1,0 +1,819 @@
+Following are the print info for loading:
+
+
+
+-------------------------------------
+
+Following are the print info from the game:
+
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '3h' to place a marker on space (5, 5).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'kc', 'jh'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'kd' to place a marker on space (7, 7).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['8s', 'ah', '3d', '7d', '4c', '2h'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '6h' to place a marker on space (4, 3).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', 'ks', '9s', '2s', '8h'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'js' to remove a marker from space (5, 5).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['kh', 'qh', '5s', 'ac', '7d', 'ts'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'kc' to place a marker on space (7, 4).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'jh', 'th'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '2h' to place a marker on space (5, 4).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['8s', 'ah', '3d', '7d', '4c', '7c'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '8h' to place a marker on space (6, 3).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', 'ks', '9s', '2s', 'th'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '5s' to place a marker on space (8, 3).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['kh', 'qh', 'ac', '7d', 'ts', '3d'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'jh' to remove a marker from space (5, 4).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'th', '9c'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '3d' to place a marker on space (2, 3).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['8s', 'ah', '7d', '4c', '7c', 'ad'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played 'th' to place a marker on space (6, 5).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', 'ks', '9s', '2s', 'jc'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'kh' to place a marker on space (5, 6).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['qh', 'ac', '7d', 'ts', '3d', 'qd'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '9c' to place a marker on space (6, 2).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'th', '4c'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '7d' to place a marker on space (2, 7).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['8s', 'ah', '4c', '7c', 'ad', 'tc'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played 'jc' to place a marker on space (4, 4).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', 'ks', '9s', '2s', '9c'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'qh' to place a marker on space (6, 6).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['ac', '7d', 'ts', '3d', 'qd', '4h'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '4c' to place a marker on space (3, 4).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'th', 'qc'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '8s' to place a marker on space (0, 7).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['ah', '4c', '7c', 'ad', 'tc', 'qd'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '9c' to place a marker on space (4, 0).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', 'ks', '9s', '2s', '5d'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '4h' to place a marker on space (4, 5).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['ac', '7d', 'ts', '3d', 'qd', 'as'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'qc' to place a marker on space (7, 3).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'th', 'qs'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '7c' to place a marker on space (4, 2).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['ah', '4c', 'ad', 'tc', 'qd', '6c'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '5d' to place a marker on space (2, 5).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', 'ks', '9s', '2s', 'kc'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'ts' to place a marker on space (5, 1).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['ac', '7d', '3d', 'qd', 'as', '9d'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'qs' to place a marker on space (4, 1).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'th', '6d'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'ah' to place a marker on space (4, 6).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'ad', 'tc', 'qd', '6c', '8c'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played 'ks' to place a marker on space (3, 1).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '9s', '2s', 'kc', '6s'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'ac' to place a marker on space (7, 5).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', 'qd', 'as', '9d', '3s'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '6d' to place a marker on space (2, 6).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '8d', '5s', '2s', 'th', 'ac'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '8c' to place a marker on space (3, 0).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'ad', 'tc', 'qd', '6c', '5c'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '6s' to place a marker on space (0, 5).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '9s', '2s', 'kc', '3h'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '3s' to place a marker on space (8, 5).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', 'qd', 'as', '9d', '9d'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '8d' to place a marker on space (3, 7).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '5s', '2s', 'th', 'ac', 'jd'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '5c' to place a marker on space (3, 3).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'ad', 'tc', 'qd', '6c', '8d'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '3h' to place a marker on space (5, 5).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '9s', '2s', 'kc', '6s'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'qd' to place a marker on space (6, 7).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', 'as', '9d', '9d', '9h'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'jd' to place a marker on space (5, 4).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '5s', '2s', 'th', 'ac', 'as'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'ad' to place a marker on space (7, 6).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'tc', 'qd', '6c', '8d', '6c'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '9s' to place a marker on space (0, 8).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '2s', 'kc', '6s', '7h'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '9h' to place a marker on space (6, 4).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', 'as', '9d', '9d', '4s'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '5s' to place a marker on space (0, 4).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'th', 'ac', 'as', 'ks'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'tc' to place a marker on space (7, 2).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'qd', '6c', '8d', '6c', '3c'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '7h' to place a marker on space (5, 3).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '2s', 'kc', '6s', '8h'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'as' to place a marker on space (2, 1).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', '9d', '9d', '4s', '8s'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'th' to place a marker on space (1, 8).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'ac', 'as', 'ks', 'kh'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '3c' to place a marker on space (3, 5).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'qd', '6c', '8d', '6c', '7s'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '8h' to place a marker on space (3, 8).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '2s', 'kc', '6s', '4h'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '9d' to place a marker on space (4, 7).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', '9d', '4s', '8s', '2c'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'as' to place a marker on space (4, 9).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'ac', 'ks', 'kh', '8c'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '7s' to place a marker on space (0, 6).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'qd', '6c', '8d', '6c', 'qh'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played 'kc' to place a marker on space (7, 0).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '2s', '6s', '4h', 'jc'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '2c' to place a marker on space (1, 4).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', '9d', '4s', '8s', '3c'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'ac' to place a marker on space (8, 0).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'ks', 'kh', '8c', '7c'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'qh' to place a marker on space (1, 7).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'qd', '6c', '8d', '6c', 'jd'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played 'jc' to place a marker on space (0, 3).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '9s', '2s', '6s', '4h', '5h'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '8s' to place a marker on space (7, 1).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', '9d', '4s', '3c', 'jh'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'ks' to place a marker on space (3, 9).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'kh', '8c', '7c', '2d'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'jd' to place a marker on space (0, 1).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', 'qd', '6c', '8d', '6c', '2d'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '9s' to place a marker on space (6, 1).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '2s', '6s', '4h', '5h', '4s'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'jh' to remove a marker from space (0, 3).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '3d', '9d', '4s', '3c', '2h'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '8c' to place a marker on space (5, 2), forming a new sequence!
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'kh', '7c', '2d', '6h'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'qd' to place a marker on space (9, 3).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', '6c', '8d', '6c', '2d', 'qs'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '4s' to place a marker on space (0, 3).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '2s', '6s', '4h', '5h', 'ah'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '3d' to place a marker on space (6, 9).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '9d', '4s', '3c', '2h', '5c'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '7c' to place a marker on space (2, 0).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'kh', '2d', '6h', '5d'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '6c' to place a marker on space (1, 0).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', '8d', '6c', '2d', 'qs', '2c'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played 'ah' to place a marker on space (1, 5).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '2s', '6s', '4h', '5h', '4d'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '4s' to place a marker on space (8, 4).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '9d', '3c', '2h', '5c', '4d'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '2d' to place a marker on space (2, 2).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'kh', '6h', '5d', '5h'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '2c' to place a marker on space (3, 6), forming a new sequence!
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', '8d', '6c', '2d', 'qs', 'qc'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '4d' to place a marker on space (2, 4).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '2s', '6s', '4h', '5h', '6d'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '3c' to place a marker on space (1, 3).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '9d', '2h', '5c', '4d', 'js'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '6h' to place a marker on space (5, 8).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'kh', '5d', '5h', 'ad'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played 'qc' to place a marker on space (6, 0).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', '8d', '6c', '2d', 'qs', '9h'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '5h' to place a marker on space (6, 8).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '2s', '6s', '4h', '6d', '7h'].
+
+--------------------------------------------------------------------
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '5c' to place a marker on space (1, 1).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['7d', '9d', '2h', '4d', 'js', '3s'].
+
+--------------------------------------------------------------------
+trade {'play_card': '5h', 'draft_card': 'td', 'type': 'trade', 'coords': None}
+trade {'play_card': '5h', 'draft_card': 'td', 'type': 'trade', 'coords': None}
+trade {'play_card': '5h', 'draft_card': '7s', 'type': 'trade', 'coords': None}
+trade {'play_card': '5h', 'draft_card': 'tc', 'type': 'trade', 'coords': None}
+trade {'play_card': None, 'draft_card': None, 'type': 'trade', 'coords': None}
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 traded in '5h' as a dead card, selecting 'td' in exchange.
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'kh', '5d', 'ad', 'td'].
+
+--------------------------------------------------------------------
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'td' to place a marker on space (5, 7).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['ts', '2s', 'kh', '5d', 'ad', 'td'].
+
+--------------------------------------------------------------------
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '9h' to place a marker on space (2, 8).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['4c', '8d', '6c', '2d', 'qs', '7s'].
+
+--------------------------------------------------------------------
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '4h' to place a marker on space (7, 8).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['kd', '2s', '6s', '6d', '7h', 'tc'].
+
+--------------------------------------------------------------------
+GAME HAS ENDED
+--------------------------------------------------------------------
+Score for Agent 0: 1
+Score for Agent 1: 1
+Score for Agent 2: 0
+Score for Agent 3: 0

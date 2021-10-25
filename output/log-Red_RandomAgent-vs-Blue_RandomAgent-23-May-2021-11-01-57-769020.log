@@ -1,0 +1,219 @@
+Following are the print info for loading:
+
+
+
+-------------------------------------
+
+Following are the print info from the game:
+
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80bec70>
+position is  [(1, 9), (5, 1)]
+try to call checkSeq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+checkseq-num 4
+calling checkSeq success and info is: (0, 4)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80beca0>
+checkseq-num 5
+first round distance: 2
+play-closest-friend: 2
+checkseq-num 1
+play feature {'play-seq-num': 0, 'play-chip-num': 5, 'play-opp-seq-num': 0, 'play-opp-chip-num': 1}
+[OtherError] error occured when calling SelectAction()!
+Selecting random action instead!
+Agent 0 Time Out, 1 out of 3.
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played 'jc' to place a marker on space (4, 0).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['8s', 'qc', '3h', '9s', 'th', 'ks'].
+
+--------------------------------------------------------------------
+playCard:  5h
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '5h' to place a marker on space (4, 4).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['kd', '4s', '5c', '4d', '2c', 'ah'].
+
+--------------------------------------------------------------------
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80831c0>
+position is  [(1, 9), (5, 1)]
+try to call checkSeq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f8083f40>
+checkseq-num 4
+play-closest-friend: 0
+checkseq-num 0
+play feature {'play-seq-num': 0, 'play-chip-num': 4, 'play-opp-seq-num': 0, 'play-opp-chip-num': 0}
+[OtherError] error occured when calling SelectAction()!
+Selecting random action instead!
+Agent 2 Time Out, 1 out of 3.
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '3d' to place a marker on space (2, 3).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['ad', 'kc', '8c', '5d', '5s', '8c'].
+
+--------------------------------------------------------------------
+playCard:  8h
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played '8h' to place a marker on space (6, 3).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['ts', '4d', 'ah', 'ks', '3d', '9h'].
+
+--------------------------------------------------------------------
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80b81c0>
+position is  [(1, 9), (5, 1)]
+try to call checkSeq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80b8790>
+checkseq-num 5
+play-closest-friend: 0
+checkseq-num 1
+play feature {'play-seq-num': 0, 'play-chip-num': 5, 'play-opp-seq-num': 0, 'play-opp-chip-num': 1}
+[OtherError] error occured when calling SelectAction()!
+Selecting random action instead!
+Agent 0 Time Out, 2 out of 3.
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '9s' to place a marker on space (6, 1).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['8s', 'qc', '3h', 'th', 'ks', '7s'].
+
+--------------------------------------------------------------------
+playCard:  2c
+agent id 1
+
+Agent 1 has chosen the following move:
+Agent #1 played '2c' to place a marker on space (3, 6).
+
+
+The new agent state is:
+Agent #1, playing for team B, is holding cards ['kd', '4s', '5c', '4d', 'ah', '4c'].
+
+--------------------------------------------------------------------
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80831c0>
+position is  [(1, 9), (5, 1)]
+try to call checkSeq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+checkseq-num 6
+calling checkSeq success and info is: (0, 6)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80be430>
+checkseq-num 4
+play-closest-friend: 0
+checkseq-num 1
+play feature {'play-seq-num': 0, 'play-chip-num': 4, 'play-opp-seq-num': 0, 'play-opp-chip-num': 1}
+[OtherError] error occured when calling SelectAction()!
+Selecting random action instead!
+Agent 2 Time Out, 2 out of 3.
+agent id 2
+
+Agent 2 has chosen the following move:
+Agent #2 played '5s' to place a marker on space (0, 4).
+
+
+The new agent state is:
+Agent #2, playing for team R, is holding cards ['ad', 'kc', '8c', '5d', '8c', '8d'].
+
+--------------------------------------------------------------------
+playCard:  ah
+agent id 3
+
+Agent 3 has chosen the following move:
+Agent #3 played 'ah' to place a marker on space (4, 6).
+
+
+The new agent state is:
+Agent #3, playing for team B, is holding cards ['ts', '4d', 'ks', '3d', '9h', 'jd'].
+
+--------------------------------------------------------------------
+in the getPolicy
+finding best draft
+In get Qvalue and feature name is draft
+in get feature
+in draft feature
+plr_state is: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80b8400>
+position is  [(1, 9), (5, 1)]
+try to call checkSeq
+checkseq-num 5
+calling checkSeq success and info is: (0, 5)
+try to call checkSeq
+checkseq-num 6
+calling checkSeq success and info is: (0, 6)
+in play feature
+opp_plr: <Sequence.sequence_model.SequenceState.AgentState object at 0x7fb5f80949d0>
+checkseq-num 6
+play-closest-friend: 0
+checkseq-num 1
+play feature {'play-seq-num': 0, 'play-chip-num': 6, 'play-opp-seq-num': 0, 'play-opp-chip-num': 1}
+[OtherError] error occured when calling SelectAction()!
+Selecting random action instead!
+Agent 0 Time Out, 3 out of 3.
+agent id 0
+
+Agent 0 has chosen the following move:
+Agent #0 played '7s' to place a marker on space (8, 1).
+
+
+The new agent state is:
+Agent #0, playing for team R, is holding cards ['8s', 'qc', '3h', 'th', 'ks', '7s'].
+
+--------------------------------------------------------------------
+GAME HAS ENDED
+--------------------------------------------------------------------
+Score for Agent 0: 0
+Score for Agent 1: 0
+Score for Agent 2: 0
+Score for Agent 3: 0
